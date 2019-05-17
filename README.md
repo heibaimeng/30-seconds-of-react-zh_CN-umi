@@ -1,7 +1,7 @@
 
-[30-seconds-of-react](https://github.com/30-seconds/30-seconds-of-react) 项目的中文版本，使用谷歌翻译加人工校对的方式，保证翻译通畅可读。
+[30-seconds-of-react](https://github.com/30-seconds/30-seconds-of-react) 项目的中文版本，使用“谷歌机器翻译+人工校对优化”的方式，保证翻译通畅可读。
 
-使用 umi 执行示例 demo ，优势：无需定义路由，新建文件即可访问。每个片段将会附带代码地址和线上（本地）预览地址。
+使用 umi 执行示例 demo ，优势：无需定义路由，新建文件即可访问。每个片段将会附带代码地址和线上(本地)预览地址。
 
 把示例代码跑起来：
 
@@ -10,7 +10,7 @@ yarn install
 yarn dev
 ```
 
-以下是正式内容（翻译完成之前，每天保持更新）：
+以下是正式内容(翻译完成之前，每天保持更新)：
 
 ---
 
@@ -20,8 +20,8 @@ yarn dev
 
 > 精选的有用的 React 片段，你可以在30秒或更短的时间内理解。
 
- - 使用<kbd> Ctrl </kbd> + <kbd> F </kbd>或<kbd>命令</kbd> + <kbd> F </kbd>搜索片段。
- - 欢迎提供，请阅读[贡献指南](CONTRIBUTING.md)。
+ - 使用<kbd> Ctrl </kbd> + <kbd> F </kbd>或<kbd>command</kbd> + <kbd> F </kbd>搜索片段。
+ - 欢迎提供，请阅读<a href="https://github.com/30-seconds/30-seconds-of-react/blob/master/CONTRIBUTING.md" target="_blank">贡献指南</a>。
  - 片段用React 16.8+编写，使用 hooks 。
 
 ### 先决条件
@@ -42,13 +42,13 @@ function MyComponent(props) {
 import './MyComponent.css';
 ```
 
-要渲染组件，请确保在元素中存在一个名为“root”的节点（最好是`<div>`）并且导入了`ReactDOM`，如下所示：
+要渲染组件，请确保在元素中存在一个名为“root”的节点 ( 最好是`<div>` ) 并且导入了`ReactDOM`，如下所示：
 
 ```js
 import ReactDOM from 'react-dom';
 ```
 
-ps: 这里我使用 umi 进行代码的学习（创建过程中不要附带插件）。
+ps: 这里我使用 umi 进行代码的学习 ( 创建过程中不要附带插件 ) 。
 
 ```
 yarn create umi
@@ -68,8 +68,8 @@ yarn create umi
 <summary>查看内容</summary>
 
 * [DataList数据列表](#DataList数据列表)
-* [DataTable](#datatable)
-* [MappedTable](#mappedtable)
+* [DataTable数据表格](#DataTable数据表格)
+* [MappedTable映射表格](#MappedTable映射表格)
 </details>
 
 
@@ -131,7 +131,7 @@ yarn create umi
 ## Array数组
 ### DataList数据列表
 
-从数组中呈现元素列表。
+通过数组渲染元素列表。
 
 * 使用 `isOrdered` prop 的值有条件地呈现`<ol>`或`<ul>`列表。
 * 使用`Array.prototype.map`将`data`中的每个项目渲染为`<li>`元素，给它一个由其索引和值的串联产生的`key`。
@@ -157,17 +157,17 @@ ReactDOM.render(<DataList data={names} isOrdered />, document.getElementById('ro
 
 ps:
 
-- [示例代码](src/pages/Array/DataList/index.js)
-- [运行效果](http://localhost:8000/Array/DataList)
+- <a href="src/pages/Array/DataList.js" target="_blank">示例代码</a>
+- <a href="http://localhost:8000/Array/DataList" target="_blank">运行效果</a>
 
 <br>[⬆ 回到顶部](#目录)
 
-### DataTable
+### DataTable数据表格
 
-Renders a table with rows dynamically created from an array of primitives.
+通过数组渲染表格，动态创建每一行。
 
-* Render a `<table>` element with two columns (`ID` and `Value`).
-* Use `Array.prototype.map` to render every item in `data` as a `<tr>` element, consisting of its index and value, give it a `key` produced from the concatenation of the two.
+*渲染一个带有两列(`ID`和`Value`)的`<table>`元素。
+*使用`Array.prototype.map`将`data`中的每个项目渲染为`<tr>`元素，由其索引和值组成，给它一个由两者串联产生的`key`。
 
 ```jsx
 function DataTable({ data }) {
@@ -201,16 +201,21 @@ ReactDOM.render(<DataTable data={people} />, document.getElementById('root'));
 ```
 </details>
 
+ps:
+
+- <a href="src/pages/Array/DataTable.js" target="_blank">示例代码</a>
+- <a href="http://localhost:8000/Array/DataTable" target="_blank">运行效果</a>
+
 <br>[⬆ 回到顶部](#目录)
 
-### MappedTable
+### MappedTable映射表格
 
-Renders a table with rows dynamically created from an array of objects and a list of property names.
+通过对象数组渲染表格，属性名称与列对应，动态创建每一行。
 
-* Use `Object.keys()`, `Array.prototype.filter()`, `Array.prototype.includes()` and `Array.prototype.reduce()` to produce a `filteredData` array, containing all objects with the keys specified in `propertyNames`.
-* Render a `<table>` element with a set of columns equal to the amount of values in `propertyNames`.
-* Use `Array.prototype.map` to render each value in the `propertyNames` array as a `<th>` element.
-* Use `Array.prototype.map` to render each object in the `filteredData` array as a `<tr>` element, containing a `<td>` for each key in the object.
+* 使用`Object.keys()`，`Array.prototype.filter()`，`Array.prototype.includes()`和`Array.prototype.reduce()`生成一个`filteredData`数组，包含所有对象 使用`propertyNames`中指定的键。
+* 渲染一个`<table>`元素，其中一组列等于`propertyNames`中的值。
+* 使用`Array.prototype.map`将`propertyNames`数组中的每个值呈现为`<th>`元素。
+* 使用`Array.prototype.map`将`filteredData`数组中的每个对象呈现为`<tr>`元素，对象中的每个键包含一个`<td>`。
 
 ```jsx
 function MappedTable({ data, propertyNames }) {
@@ -243,7 +248,7 @@ function MappedTable({ data, propertyNames }) {
 ```
 #### Notes
 
-This component does not work with nested objects and will break if there are nested objects inside any of the properties specified in `propertyNames`.,<!-tags: array,object -->,<!-expertise: 1 -->
+此组件不适用于嵌套对象，如果在`propertyNames`中指定的任何属性中有嵌套对象，则会中断。
 
 <details>
 <summary>例子</summary>
@@ -260,6 +265,11 @@ ReactDOM.render(
 );
 ```
 </details>
+
+ps:
+
+- <a href="src/pages/Array/MappedTable.js" target="_blank">示例代码</a>
+- <a href="http://localhost:8000/Array/MappedTable" target="_blank">运行效果</a>
 
 <br>[⬆ 回到顶部](#目录)
 
