@@ -6,10 +6,27 @@ export default function() {
       <div className={styles.welcome} />
       <ul className={styles.list}>
         <li>
-          要开始，请编辑 <code>src/pages/index.js</code> 并保存以重新加载。
+          React 的 30 秒小片段：
+          <a
+            href="https://github.com/heibaimeng/30-seconds-of-react-Zh-CN-with-demo"
+            target="_blank"
+            rel="noreferrer noopener"
+          >
+            项目地址
+          </a>
+          ，
         </li>
+
         <li>
-          <a href="https://umijs.org/guide/getting-started.html">入门</a>
+          是
+          <a
+            href="https://github.com/30-seconds/30-seconds-of-react"
+            target="_blank"
+            rel="noreferrer noopener"
+          >
+            30-seconds-of-react
+          </a>
+          项目的中文版本，使用 umi.js 执行示例 demo 。
         </li>
       </ul>
     </div>
