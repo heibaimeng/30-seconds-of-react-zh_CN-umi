@@ -2,7 +2,10 @@ function MappedTable({ data, propertyNames }) {
   let filteredData = data.map(v =>
     Object.keys(v)
       .filter(k => propertyNames.includes(k))
-      .reduce((acc, key) => ((acc[key] = v[key]), acc), {}),
+      // 迭代为 acc 对象赋值：
+      // 回调函数为 (acc, key) => ((acc[key] = v[key]), acc) 初始值为 {}
+      // ((操作), 返回值) 语法解读：括号里进行任意操作，并指定返回值
+      .reduce(( acc, key) => ((acc[key] = v[key]), acc), {}),
   );
   return (
     <table>

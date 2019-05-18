@@ -1,7 +1,7 @@
 
-[30-seconds-of-react](https://github.com/30-seconds/30-seconds-of-react) 项目的中文版本，使用“谷歌机器翻译+人工校对优化”的方式，保证翻译通畅可读。
+[30-seconds-of-react](https://github.com/30-seconds/30-seconds-of-react) 项目的中文版本，并对案例进行分析、运行和注释。
 
-使用 umi 执行示例 demo ，优势：无需定义路由，新建文件即可访问。每个片段将会附带代码地址和线上(本地)预览地址。
+使用 umi 运行示例 demo ，优势：无需定义路由，新建文件即可访问。每个片段将会附带代码地址和线上(本地)预览地址。
 
 把示例代码跑起来：
 
@@ -62,7 +62,7 @@ yarn create umi
 
 ## 目录
 
-### Array
+### Array数组渲染
 
 <details>
 <summary>查看内容</summary>
@@ -73,69 +73,69 @@ yarn create umi
 </details>
 
 
-### Input
+### Input输入渲染
 
 <details>
 <summary>查看内容</summary>
 
-* [Input](#input)
-* [LimitedTextarea](#limitedtextarea)
-* [LimitedWordTextarea](#limitedwordtextarea)
-* [MultiselectCheckbox](#multiselectcheckbox)
-* [PasswordRevealer](#passwordrevealer)
-* [Select](#select)
-* [Slider](#slider)
-* [TextArea](#textarea)
+* [Input基础输入框](#Input基础输入框)
+* [LimitedTextarea限制字符数的多行文本](#LimitedTextarea限制字符数的多行文本)
+* [LimitedWordTextarea限制单词数的多行文本](#LimitedWordTextarea限制单词数的多行文本)
+* [MultiselectCheckbox多选复选框](#MultiselectCheckbox多选复选框)
+* [PasswordRevealer密码可见](#PasswordRevealer密码可见)
+* [Select下拉选择框](#Select下拉选择框)
+* [Slider滑块元素](#Slider滑块元素)
+* [TextArea多行文本](#TextArea多行文本)
 </details>
 
 
-### Object
+### Object对象渲染
 
 <details>
 <summary>查看内容</summary>
 
-* [TreeView](#treeview)
+* [TreeView树](#TreeView树)
 </details>
 
 
-### String
+### String字符串渲染
 
 <details>
 <summary>查看内容</summary>
 
-* [AutoLink](#autolink)
+* [AutoLink自动链接](#AutoLink自动链接)
 </details>
 
 
-### Visual
+### Visual视觉效果渲染
 
 <details>
 <summary>查看内容</summary>
 
-* [Accordion](#accordion)
-* [Carousel](#carousel)
-* [Collapse](#collapse)
-* [CountDown](#countdown)
-* [FileDrop](#filedrop)
-* [Mailto](#mailto)
-* [Modal](#modal)
-* [StarRating](#starrating)
-* [Tabs](#tabs)
-* [Ticker](#ticker)
-* [Toggle](#toggle)
-* [Tooltip](#tooltip)
+* [Accordion手风琴效果](#Accordion手风琴效果)
+* [Carousel轮播](#Carousel轮播)
+* [Collapse折叠面板](#Collapse折叠面板)
+* [CountDown倒计时](#CountDown倒计时)
+* [FileDrop文件拖放组件](#FileDrop文件拖放组件)
+* [Mailto发送电子邮件](#Mailto发送电子邮件)
+* [Modal模态框](#Modal模态框)
+* [StarRating星级评分](#StarRating星级评分)
+* [Tabs选项卡组件](#Tabs选项卡组件)
+* [Ticker](#Ticker)
+* [Toggle](#Toggle)
+* [Tooltip](#Tooltip)
 </details>
 
 ---
 
-## Array数组
+## Array数组渲染
 ### DataList数据列表
 
 通过数组渲染元素列表。
 
-* 使用 `isOrdered` prop 的值有条件地呈现`<ol>`或`<ul>`列表。
+* 使用 `isOrdered` prop 的值有条件地渲染`<ol>`或`<ul>`列表。
 * 使用`Array.prototype.map`将`data`中的每个项目渲染为`<li>`元素，给它一个由其索引和值的串联产生的`key`。
-* 默认情况下，省略 `isOrdered` prop 以呈现`<ul>`列表。
+* 默认情况下，省略 `isOrdered` prop 以渲染`<ul>`列表。
 
 ```jsx
 function DataList({ isOrdered, data }) {
@@ -148,9 +148,17 @@ function DataList({ isOrdered, data }) {
 <summary>例子</summary>
 
 ```jsx
-const names = ['John', 'Paul', 'Mary'];
-ReactDOM.render(<DataList data={names} />, document.getElementById('root'));
-ReactDOM.render(<DataList data={names} isOrdered />, document.getElementById('root'));
+export default function() {
+  const names = ['John', 'Paul', 'Mary'];
+  return (
+    <div>
+      无序列表：
+      <DataList data={names} />
+      有序列表：
+      <DataList data={names} isOrdered />
+    </div>
+  );
+}
 ```
 
 </details>
@@ -196,8 +204,10 @@ function DataTable({ data }) {
 <summary>例子</summary>
 
 ```jsx
-const people = ['John', 'Jesse'];
-ReactDOM.render(<DataTable data={people} />, document.getElementById('root'));
+export default function() {
+  const people = ['John', 'Jesse'];
+  return <DataTable data={people} />;
+}
 ```
 </details>
 
@@ -214,15 +224,18 @@ ps:
 
 * 使用`Object.keys()`，`Array.prototype.filter()`，`Array.prototype.includes()`和`Array.prototype.reduce()`生成一个`filteredData`数组，包含所有对象 使用`propertyNames`中指定的键。
 * 渲染一个`<table>`元素，其中一组列等于`propertyNames`中的值。
-* 使用`Array.prototype.map`将`propertyNames`数组中的每个值呈现为`<th>`元素。
-* 使用`Array.prototype.map`将`filteredData`数组中的每个对象呈现为`<tr>`元素，对象中的每个键包含一个`<td>`。
+* 使用`Array.prototype.map`将`propertyNames`数组中的每个值渲染为`<th>`元素。
+* 使用`Array.prototype.map`将`filteredData`数组中的每个对象渲染为`<tr>`元素，对象中的每个键包含一个`<td>`。
 
 ```jsx
 function MappedTable({ data, propertyNames }) {
   let filteredData = data.map(v =>
     Object.keys(v)
       .filter(k => propertyNames.includes(k))
-      .reduce((acc, key) => ((acc[key] = v[key]), acc), {})
+      // 迭代为 acc 对象赋值：
+      // 回调函数为 (acc, key) => ((acc[key] = v[key]), acc) 初始值为 {}
+      // ((操作), 返回值) 语法解读：括号里进行任意操作，并指定返回值
+      .reduce(( acc, key) => ((acc[key] = v[key]), acc), {}),
   );
   return (
     <table>
@@ -254,15 +267,14 @@ function MappedTable({ data, propertyNames }) {
 <summary>例子</summary>
 
 ```jsx
-const people = [
-  { name: 'John', surname: 'Smith', age: 42 },
-  { name: 'Adam', surname: 'Smith', gender: 'male' }
-];
-const propertyNames = ['name', 'surname', 'age'];
-ReactDOM.render(
-  <MappedTable data={people} propertyNames={propertyNames} />,
-  document.getElementById('root')
-);
+export default function() {
+  const people = [
+    { name: 'John', surname: 'Smith', age: 42 },
+    { name: 'Adam', surname: 'Smith', gender: 'male' },
+  ];
+  const propertyNames = ['name', 'surname', 'age'];
+  return <MappedTable data={people} propertyNames={propertyNames} />;
+}
 ```
 </details>
 
@@ -274,13 +286,13 @@ ps:
 <br>[⬆ 回到顶部](#目录)
 
 
-## Input
-### Input
+## Input输入渲染
+### Input基础输入框
 
-Renders an `<input>` element that uses a callback function to pass its value to the parent component.
+输入框组件，使用回调函数将其值传递给父组件。
 
-* Use object destructuring to set defaults for certain attributes of the `<input>` element.
-* Render an `<input>` element with the appropriate attributes and use the `callback` function in the `onChange` event to pass the value of the input to the parent.
+* 使用对象解构来设置`<input>`元素的某些属性的默认值。
+* 使用适当的属性渲染一个`<input>`元素，并使用`onChange`事件中的`callback`函数将输入值传递给父元素。
 
 ```jsx
 function Input({ callback, type = 'text', disabled = false, readOnly = false, placeholder = '' }) {
@@ -290,6 +302,7 @@ function Input({ callback, type = 'text', disabled = false, readOnly = false, pl
       disabled={disabled}
       readOnly={readOnly}
       placeholder={placeholder}
+      // event.target.value
       onChange={({ target: { value } }) => callback(value)}
     />
   );
@@ -300,18 +313,22 @@ function Input({ callback, type = 'text', disabled = false, readOnly = false, pl
 <summary>例子</summary>
 
 ```jsx
-ReactDOM.render(
-  <Input type="text" placeholder="Insert some text here..." callback={val => console.log(val)} />,
-  document.getElementById('root')
-);
+export default function() {
+  return <Input type="text" placeholder="Insert some text here..." callback={val => console.log(val)} />;
+}
 ```
 </details>
 
+ps:
+
+- <a href="src/pages/Input/Input.js" target="_blank">示例代码</a>
+- <a href="http://localhost:8000/Input/Input" target="_blank">运行效果</a>
+
 <br>[⬆ 回到顶部](#目录)
 
-### LimitedTextarea
+### LimitedTextarea限制字符数的多行文本
 
-Renders a textarea component with a character limit.
+限制字符数的多行文本组件。
 
 * Use the `React.useState()` hook to create the `content` state variable and set its value to `value`.
 Create a method `setFormattedContent`, which trims the content of the input if it's longer than `limit`.
@@ -356,9 +373,9 @@ ReactDOM.render(<LimitedTextarea limit={32} value="Hello!" />, document.getEleme
 
 <br>[⬆ 回到顶部](#目录)
 
-### LimitedWordTextarea
+### LimitedWordTextarea限制单词数的多行文本
 
-Renders a textarea component with a word limit.
+限制单词数的多行文本组件。
 
 * Use the `React.useState()` hook to create the `content` and `wordCount` state variables and set their values to `value` and `0` respectively.
 * Create a method `setFormattedContent`, which uses `String.prototype.split(' ')` to turn the input into an array of words and check if the result of applying `Array.prototype.filter(Boolean)` has a `length` longer than `limit`.
@@ -420,9 +437,10 @@ ReactDOM.render(
 
 <br>[⬆ 回到顶部](#目录)
 
-### MultiselectCheckbox
 
-Renders a checkbox list that uses a callback function to pass its selected value/values to the parent component.
+### MultiselectCheckbox多选复选框
+
+一个复选框列表，该列表使用回调函数将其选定的值/值传递给父组件。
 
 * Use `React.setState()` to create a `data` state variable and set its initial value equal to the `options` prop.
 * Create a function `toggle` that is used to toggle the `checked` to update the `data` state variable and call the `onChange` callback passed via the component's props.
@@ -487,9 +505,9 @@ ReactDOM.render(
 
 <br>[⬆ 回到顶部](#目录)
 
-### PasswordRevealer
+### PasswordRevealer密码可见
 
-Renders a password input field with a reveal button.
+密码输入框，使用按钮来切换密码的显示、隐藏。
 
 * Use the `React.useState()` hook to create the `shown` state variable and set its value to `false`.
 * Use a`<div>` to wrap both the`<input>` and the `<button>` element that toggles the type of the input field between `"text"` and `"password"`.
@@ -517,9 +535,9 @@ ReactDOM.render(<PasswordRevealer />, document.getElementById('root'));
 
 <br>[⬆ 回到顶部](#目录)
 
-### Select
+### Select下拉选择框
 
-Renders a `<select>` element that uses a callback function to pass its value to the parent component.
+下拉选组件，使用回调函数将其值传递给父组件。
 
 * Use object destructuring to set defaults for certain attributes of the `<select>` element.
 * Render a `<select>` element with the appropriate attributes and use the `callback` function in the `onChange` event to pass the value of the textarea to the parent.
@@ -562,9 +580,9 @@ ReactDOM.render(
 
 <br>[⬆ 回到顶部](#目录)
 
-### Slider
+### Slider滑块元素
 
-Renders a slider element that uses a callback function to pass its value to the parent component.
+滑块元素，使用回调函数将其值传递给父组件。
 
 * Use object destructuring to set defaults for certain attributes of the `<input>` element.
 * Render an `<input>` element of type `"range"` and the appropriate attributes, use the `callback` function in the `onChange` event to pass the value of the input to the parent.
@@ -592,9 +610,9 @@ ReactDOM.render(<Slider callback={val => console.log(val)} />, document.getEleme
 
 <br>[⬆ 回到顶部](#目录)
 
-### TextArea
+### TextArea多行文本
 
-Renders a `<textarea>` element that uses a callback function to pass its value to the parent component.
+多行文本组件，使用回调函数将其值传递给父组件。
 
 * Use object destructuring to set defaults for certain attributes of the `<textarea>` element.
 * Render a `<textarea>` element with the appropriate attributes and use the `callback` function in the `onChange` event to pass the value of the textarea to the parent.
@@ -635,10 +653,10 @@ ReactDOM.render(
 <br>[⬆ 回到顶部](#目录)
 
 
-## Object
-### TreeView
+## Object对象渲染
+### TreeView树
 
-Renders a tree view of a JSON object or array with collapsible content.
+具有可折叠内容的JSON对象或数组的树组件。
 
 * Use object destructuring to set defaults for certain props.
 * Use the value of the `toggled` prop to determine the initial state of the content (collapsed/expanded).
@@ -767,10 +785,10 @@ ReactDOM.render(<TreeView data={data} name="data" />, document.getElementById('r
 <br>[⬆ 回到顶部](#目录)
 
 
-## String
-### AutoLink
+## String字符串渲染
+### AutoLink自动链接
 
-Renders a string as plaintext, with URLs converted to appropriate `<a>` elements.
+将字符串中的URL转换为适当的 `<a>` 元素。
 
 * Use `String.prototype.split()` and `String.prototype.match()` with a regular expression to find URLs in a string.
 * Return a `<React.Fragment>` with matched URLs rendered as `<a>` elements, dealing with missing protocol prefixes if necessary, and the rest of the string rendered as plaintext.
@@ -808,10 +826,10 @@ ReactDOM.render(
 <br>[⬆ 回到顶部](#目录)
 
 
-## Visual
-### Accordion
+## Visual视觉效果渲染
+### Accordion手风琴效果
 
-Renders an accordion menu with multiple collapsible content components.
+手风琴效果组件，包含多个可折叠内容。
 
 * Define an `AccordionItem` component, pass it to the `Accordion` and remove unnecessary nodes expect for `AccordionItem` by identifying the function's name in `props.children`.
 * Each `AccordionItem` component renders a `<button>` that is used to update the `Accordion` via the `props.handleClick` callback and the content of the component, passed down via `props.children`, while its appearance is determined by `props.isCollapsed` and based on `style`.
@@ -895,9 +913,9 @@ ReactDOM.render(
 
 <br>[⬆ 回到顶部](#目录)
 
-### Carousel
+### Carousel轮播
 
-Renders a carousel component.
+轮播组件。
 
 * Use the `React.setState()` hook to create the `active` state variable and give it a value of `0` (index of the first item).
 * Use an object, `style`, to hold the styles for the individual components.
@@ -964,9 +982,9 @@ ReactDOM.render(
 
 <br>[⬆ 回到顶部](#目录)
 
-### Collapse
+### Collapse折叠面板
 
-Renders a component with collapsible content.
+折叠面板组件。
 
 * Use the `React.setState()` hook to create the `isCollapsed` state variable with an initial value of `props.collapsed`.
 * Use an object, `style`, to hold the styles for individual components and their states.
@@ -1024,9 +1042,9 @@ ReactDOM.render(
 
 <br>[⬆ 回到顶部](#目录)
 
-### CountDown
+### CountDown倒计时
 
-Renders a countdown timer that prints a message when it reaches zero.
+渲染倒数计时器，在达到零时打印消息。
 
 * Use object destructuring to set defaults for the `hours`, `minutes` and `seconds` props.
 * Use the `React.useState()` hook to create the `time`, `paused` and `over` state variables and set their values to the values of the passed props, `false` and `false` respectively.
@@ -1108,9 +1126,9 @@ ReactDOM.render(<CountDown hours="1" minutes="45" />, document.getElementById('r
 
 <br>[⬆ 回到顶部](#目录)
 
-### FileDrop
+### FileDrop文件拖放组件
 
-Renders a file drag and drop component for a single file.
+文件拖放组件。
 
 * Create a ref called `dropRef` for this component.
 * Use the `React.useState()` hook to create the `drag` and `filename` variables, initialized to `false` and `''` respectively.
@@ -1213,9 +1231,9 @@ ReactDOM.render(<FileDrop handleDrop={console.log} />, document.getElementById('
 
 <br>[⬆ 回到顶部](#目录)
 
-### Mailto
+### Mailto发送电子邮件
 
-Renders a link formatted to send an email.
+格式化为发送电子邮件的链接。
 
 * Destructure the component's props, use `email`, `subject` and `body` to create a `<a>` element with an appropriate `href` attribute.
 * Render the link with `props.children` as its content.
@@ -1243,10 +1261,10 @@ ReactDOM.render(
 
 <br>[⬆ 回到顶部](#目录)
 
-### Modal
+### Modal模态框
 
-Renders a Modal component, controllable through events.
-To use the component, import `Modal` only once and then display it by passing a boolean value to the `isVisible` attribute.
+可通过事件控制的模态组件。
+要使用该组件，只导入一次`Modal`，然后通过将一个布尔值传递给`isVisible`属性来显示它。
 
 * Use object destructuring to set defaults for certain attributes of the modal component.
 * Define `keydownHandler`, a method which handles all keyboard events, which can be used according to your needs to dispatch actions (e.g. close the modal when <kbd>Esc</kbd> is pressed).
@@ -1383,9 +1401,9 @@ ReactDOM.render( <App/>, document.getElementById('root'));
 
 <br>[⬆ 回到顶部](#目录)
 
-### StarRating
+### StarRating星级评分
 
-Renders a star rating component.
+星级评分组件。
 
 * Define a component, called `Star` that will render each individual star with the appropriate appearance, based on the parent component's state.
 * In the `StarRating` component, use the `React.useState()` hook to define the `rating` and `selection` state variables with the initial values of `props.rating` (or `0` if invalid or not supplied) and `0`.
@@ -1440,9 +1458,9 @@ ReactDOM.render(<StarRating rating={2} />, document.getElementById('root'));
 
 <br>[⬆ 回到顶部](#目录)
 
-### Tabs
+### Tabs选项卡组件
 
-Renders a tabbed menu and view component.
+选项卡组件。
 
 * Define a `TabItem` component, pass it to the `Tab` and remove unnecessary nodes expect for `TabItem` by identifying the function's name in `props.children`.
 * Use the `React.useState()` hook to initialize the value of the `bindIndex` state variable to `props.defaultIndex`.
@@ -1607,9 +1625,9 @@ ReactDOM.render(<Toggle />, document.getElementById('root'));
 
 <br>[⬆ 回到顶部](#目录)
 
-### Tooltip
+### Tooltip提示
 
-Renders a tooltip component.
+提示组件。
 
 * Use the `React.useState()` hook to create the `show` variable and initialize it to `false`.
 * Return a `<div>` element that contains the `<div>` that will be the tooltip and the `children` passed to the component.
@@ -1667,10 +1685,13 @@ ReactDOM.render(
 
 <br>[⬆ 回到顶部](#目录)
 
+---
+
+_注：本仓库使用“谷歌机器翻译+本人校对优化”的方式进行中文化。_
 
 ---
 
-_This repository is a work in progress. If you want to contribute, please check the open issues to see where and how you can help out!_
+_<a href="https://github.com/30-seconds/30-seconds-of-react" target="_blank">30-seconds-of-react</a>正在进行中。 如果您想贡献，请查看未解决的问题，看看您可以在何处以及如何提供帮助！_
 
-_This README is built using [markdown-builder](https://github.com/30-seconds/markdown-builder)._
+_<a href="https://github.com/30-seconds/30-seconds-of-react/blob/master/README.md" target="_blank">原版README</a>是使用 <a href="https://github.com/30-seconds/markdown-builder" target="_blank">markdown-builder</a> 构建的。_
 
