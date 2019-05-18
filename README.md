@@ -165,8 +165,8 @@ export default function() {
 
 ps:
 
-- <a href="src/pages/Array/DataList.js" target="_blank">示例代码</a>
-- <a href="http://localhost:8000/Array/DataList" target="_blank">运行效果</a>
+- <a href="./src/pages/Array/DataList.js" target="_blank">示例代码</a>
+- <a href="https://heibaimeng.github.io/30-seconds-of-react-demo/#/Array/DataList" target="_blank">运行效果</a>
 
 <br>[⬆ 回到顶部](#目录)
 
@@ -213,8 +213,8 @@ export default function() {
 
 ps:
 
-- <a href="src/pages/Array/DataTable.js" target="_blank">示例代码</a>
-- <a href="http://localhost:8000/Array/DataTable" target="_blank">运行效果</a>
+- <a href="./src/pages/Array/DataTable.js" target="_blank">示例代码</a>
+- <a href="https://heibaimeng.github.io/30-seconds-of-react-demo/#/Array/DataTable" target="_blank">运行效果</a>
 
 <br>[⬆ 回到顶部](#目录)
 
@@ -280,8 +280,8 @@ export default function() {
 
 ps:
 
-- <a href="src/pages/Array/MappedTable.js" target="_blank">示例代码</a>
-- <a href="http://localhost:8000/Array/MappedTable" target="_blank">运行效果</a>
+- <a href="./src/pages/Array/MappedTable.js" target="_blank">示例代码</a>
+- <a href="https://heibaimeng.github.io/30-seconds-of-react-demo/#/Array/MappedTable" target="_blank">运行效果</a>
 
 <br>[⬆ 回到顶部](#目录)
 
@@ -321,8 +321,8 @@ export default function() {
 
 ps:
 
-- <a href="src/pages/Input/Input.js" target="_blank">示例代码</a>
-- <a href="http://localhost:8000/Input/Input" target="_blank">运行效果</a>
+- <a href="./src/pages/Input/Input.js" target="_blank">示例代码</a>
+- <a href="https://heibaimeng.github.io/30-seconds-of-react-demo/#/Input/Input" target="_blank">运行效果</a>
 
 <br>[⬆ 回到顶部](#目录)
 
