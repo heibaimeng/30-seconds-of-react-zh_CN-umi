@@ -318,7 +318,7 @@ ps:
 * 使用`React.useState()` hook 创建`content`状态变量并将其值设置为`value`。
 创建一个方法`setFormattedContent`，如果它比`limit`长，它会修剪输入的内容。
 * 使用`React.useEffect()` hook 来调用`content`状态变量值的`setFormattedContent`方法。
-* 使用``div>`来包装`<textarea>`和`<p>`元素，它显示字符数并绑定`<textarea>`的`onChange`事件来调用`setFormattedContent`处理 `event.target.value`的值。
+* 使用`<div>`来包装`<textarea>`和`<p>`元素，它显示字符数并绑定`<textarea>`的`onChange`事件来调用`setFormattedContent`处理 `event.target.value`的值。
 
 参考： <a href="https://zh-hans.reactjs.org/docs/hooks-overview.html" target="_blank">hook文档</a>
 
@@ -381,7 +381,7 @@ ps:
 * 创建一个方法`setFormattedContent`，它使用`String.prototype.split(' ')`将输入转换为单词数组，并使用 `Array.prototype.filter(Boolean)`检查 `length`是否比 `limit`长。
 * 如果上述`length`超过`limit`，则修剪输入，否则返回原始输入，在两种情况下都相应地更新`content`和`wordCount`。
 * 使用`React.useEffect()` hook 来调用`content`状态变量值的`setFormattedContent`方法。
-* 使用`div>`来包装`<textarea>`和`<p>`元素，它显示字符数并绑定`<textarea>`的`onChange`事件来调用`setFormattedContent` 处理 `event.target.value`的值。
+* 使用`<div>`来包装`<textarea>`和`<p>`元素，它显示字符数并绑定`<textarea>`的`onChange`事件来调用`setFormattedContent` 处理 `event.target.value`的值。
 
 ```jsx
 function LimitedWordTextarea({ rows, cols, value, limit }) {
