@@ -1,7 +1,5 @@
 
-[30-seconds-of-react](https://github.com/30-seconds/30-seconds-of-react) 项目的中文版本，并对案例进行分析、运行和注释。
-
-使用 umi 运行示例 demo ，优势：无需定义路由，新建文件即可访问。每个片段将会附带代码地址和线上(本地)预览地址。
+[30-seconds-of-react](https://github.com/30-seconds/30-seconds-of-react) 项目的中文版本，并对案例进行分析、运行和注释，每个片段将会附带代码地址和线上预览地址。
 
 把示例代码跑起来：
 
@@ -11,8 +9,6 @@ yarn dev
 ```
 
 以下是正式内容(翻译完成之前，每天保持更新)：
-
----
 
 ![Logo](/logo.png)
 
@@ -48,7 +44,7 @@ import './MyComponent.css';
 import ReactDOM from 'react-dom';
 ```
 
-ps: 这里我使用 umi 进行代码的学习 ( 创建过程中不要附带插件 ) 。
+ps: 这里我使用 umi 进行代码的学习（创建过程中不要附带插件）。优势是无需定义路由，新建文件即可访问。
 
 ```
 yarn create umi
@@ -72,8 +68,7 @@ yarn create umi
 * [MappedTable映射表格](#MappedTable映射表格)
 </details>
 
-
-### Input输入渲染
+### Input输入
 
 <details>
 <summary>查看内容</summary>
@@ -81,14 +76,12 @@ yarn create umi
 * [Input基础输入框](#Input基础输入框)
 * [LimitedTextarea限制字符数的多行文本](#LimitedTextarea限制字符数的多行文本)
 * [LimitedWordTextarea限制单词数的多行文本](#LimitedWordTextarea限制单词数的多行文本)
-* [MultiselectCheckbox多选复选框](#MultiselectCheckbox多选复选框)
+* [MultiselectCheckbox复选框](#MultiselectCheckbox复选框)
 * [PasswordRevealer密码可见](#PasswordRevealer密码可见)
-* [Select下拉选择框](#Select下拉选择框)
+* [Select下拉选择器](#Select下拉选择器)
 * [Slider滑块元素](#Slider滑块元素)
 * [TextArea多行文本](#TextArea多行文本)
 </details>
-
-
 ### Object对象渲染
 
 <details>
@@ -96,8 +89,6 @@ yarn create umi
 
 * [TreeView树](#TreeView树)
 </details>
-
-
 ### String字符串渲染
 
 <details>
@@ -105,8 +96,6 @@ yarn create umi
 
 * [AutoLink自动链接](#AutoLink自动链接)
 </details>
-
-
 ### Visual视觉效果渲染
 
 <details>
@@ -129,6 +118,7 @@ yarn create umi
 ---
 
 ## Array数组渲染
+
 ### DataList数据列表
 
 通过数组渲染元素列表。
@@ -165,10 +155,8 @@ export default function() {
 
 ps:
 
-- <a href="./src/pages/Array/DataList.js" target="_blank">示例代码</a>
-- <a href="https://heibaimeng.github.io/30-seconds-of-react-demo/#/Array/DataList" target="_blank">运行效果</a>
-
-<br>[⬆ 回到顶部](#目录)
+- [示例代码](https://github.com/heibaimeng/30-seconds-of-react-zh_CN-with-demo/blob/master/src/pages/Array/DataList.js)
+- [运行效果](https://heibaimeng.github.io/30-seconds-of-react-demo/#/Array/DataList)
 
 ### DataTable数据表格
 
@@ -213,10 +201,8 @@ export default function() {
 
 ps:
 
-- <a href="./src/pages/Array/DataTable.js" target="_blank">示例代码</a>
-- <a href="https://heibaimeng.github.io/30-seconds-of-react-demo/#/Array/DataTable" target="_blank">运行效果</a>
-
-<br>[⬆ 回到顶部](#目录)
+- [示例代码](https://github.com/heibaimeng/30-seconds-of-react-zh_CN-with-demo/blob/master/src/pages/Array/DataTable.js)
+- [运行效果](https://heibaimeng.github.io/30-seconds-of-react-demo/#/Array/DataTable)
 
 ### MappedTable映射表格
 
@@ -280,13 +266,11 @@ export default function() {
 
 ps:
 
-- <a href="./src/pages/Array/MappedTable.js" target="_blank">示例代码</a>
-- <a href="https://heibaimeng.github.io/30-seconds-of-react-demo/#/Array/MappedTable" target="_blank">运行效果</a>
-
-<br>[⬆ 回到顶部](#目录)
+- [示例代码](https://github.com/heibaimeng/30-seconds-of-react-zh_CN-with-demo/blob/master/src/pages/Array/MappedTable.js)
+- [运行效果](https://heibaimeng.github.io/30-seconds-of-react-demo/#/Array/MappedTable)
 
 
-## Input输入渲染
+## Input输入
 ### Input基础输入框
 
 输入框组件，使用回调函数将其值传递给父组件。
@@ -321,29 +305,37 @@ export default function() {
 
 ps:
 
-- <a href="./src/pages/Input/Input.js" target="_blank">示例代码</a>
-- <a href="https://heibaimeng.github.io/30-seconds-of-react-demo/#/Input/Input" target="_blank">运行效果</a>
-
-<br>[⬆ 回到顶部](#目录)
+- [示例代码](https://github.com/heibaimeng/30-seconds-of-react-zh_CN-with-demo/blob/master/src/pages/Input/Input.js)
+- [运行效果](https://heibaimeng.github.io/30-seconds-of-react-demo/#/Input/Input)
 
 ### LimitedTextarea限制字符数的多行文本
 
-限制字符数的多行文本组件。
+呈现限制字符数的多行文本组件。
 
-* Use the `React.useState()` hook to create the `content` state variable and set its value to `value`.
-Create a method `setFormattedContent`, which trims the content of the input if it's longer than `limit`.
-* Use the `React.useEffect()` hook to call the `setFormattedContent` method on the value of the `content` state variable.
-* Use a`<div>` to wrap both the`<textarea>` and the `<p>` element that displays the character count and bind the `onChange` event of the `<textarea>` to call `setFormattedContent` with the value of `event.target.value`.
+* 使用`React.useState()` hook 创建`content`状态变量并将其值设置为`value`。
+创建一个方法`setFormattedContent`，如果它比`limit`长，它会修剪输入的内容。
+* 使用`React.useEffect()` hook 来调用`content`状态变量值的`setFormattedContent`方法。
+* 使用``div>`来包装`<textarea>`和`<p>`元素，它显示字符数并绑定`<textarea>`的`onChange`事件来调用`setFormattedContent`处理 `event.target.value`的值。
+
+参考： <a href="https://zh-hans.reactjs.org/docs/hooks-overview.html" target="_blank">hook文档</a>
 
 ```jsx
+import React from "react";
 function LimitedTextarea({ rows, cols, value, limit }) {
+  // React.useState(初始值) 通过在函数组件里调用它，来给组件添加一些内部 state
+  // 返回一对值：当前状态和一个让你更新它的函数，你可以在事件处理函数中或其他一些地方调用这个函数。
   const [content, setContent] = React.useState(value);
 
   const setFormattedContent = text => {
+    console.log("setFormattedContent");
+    // 符合长度才允许修改
     text.length > limit ? setContent(text.slice(0, limit)) : setContent(text);
   };
 
+  // useEffect 就是一个 Effect Hook ，在组件挂载和更新时执行
+  // 可以看做 componentDidMount，componentDidUpdate 和 componentWillUnmount 这三个生命周期函数的组合
   React.useEffect(() => {
+    console.log("useEffect");
     setFormattedContent(content);
   }, []);
 
@@ -367,21 +359,26 @@ function LimitedTextarea({ rows, cols, value, limit }) {
 <summary>例子</summary>
 
 ```jsx
-ReactDOM.render(<LimitedTextarea limit={32} value="Hello!" />, document.getElementById('root'));
+export default function() {
+  return <LimitedTextarea limit={32} value="Hello!" />;
+}
 ```
 </details>
 
-<br>[⬆ 回到顶部](#目录)
+ps:
+
+- [示例代码](https://github.com/heibaimeng/30-seconds-of-react-zh_CN-with-demo/blob/master/src/pages/Input/LimitedTextarea.js)
+- [运行效果](https://heibaimeng.github.io/30-seconds-of-react-demo/#/Input/LimitedTextarea)
 
 ### LimitedWordTextarea限制单词数的多行文本
 
-限制单词数的多行文本组件。
+呈现限制单词数的多行文本组件。
 
-* Use the `React.useState()` hook to create the `content` and `wordCount` state variables and set their values to `value` and `0` respectively.
-* Create a method `setFormattedContent`, which uses `String.prototype.split(' ')` to turn the input into an array of words and check if the result of applying `Array.prototype.filter(Boolean)` has a `length` longer than `limit`.
-* If the afforementioned `length` exceeds the `limit`, trim the input, otherwise return the raw input, updating `content` and `wordCount` accordingly in both cases.
-* Use the `React.useEffect()` hook to call the `setFormattedContent` method on the value of the `content` state variable.
-* Use a`<div>` to wrap both the`<textarea>` and the `<p>` element that displays the character count and bind the `onChange` event of the `<textarea>` to call `setFormattedContent` with the value of `event.target.value`.
+* 使用`React.useState()` hook 创建`content`和`wordCount`状态变量，并将它们的值分别设置为`value`和`0`。
+* 创建一个方法`setFormattedContent`，它使用`String.prototype.split(' ')`将输入转换为单词数组，并使用 `Array.prototype.filter(Boolean)`检查 `length`是否比 `limit`长。
+* 如果上述`length`超过`limit`，则修剪输入，否则返回原始输入，在两种情况下都相应地更新`content`和`wordCount`。
+* 使用`React.useEffect()` hook 来调用`content`状态变量值的`setFormattedContent`方法。
+* 使用`div>`来包装`<textarea>`和`<p>`元素，它显示字符数并绑定`<textarea>`的`onChange`事件来调用`setFormattedContent` 处理 `event.target.value`的值。
 
 ```jsx
 function LimitedWordTextarea({ rows, cols, value, limit }) {
@@ -389,13 +386,16 @@ function LimitedWordTextarea({ rows, cols, value, limit }) {
   const [wordCount, setWordCount] = React.useState(0);
 
   const setFormattedContent = text => {
-    let words = text.split(' ');
+    let words = text.split(" ");
+    // words.filter(Boolean).length 获取数组长度
+    // .filter(Boolean) 等价于 .filter((item) => {return Boolean(item)})
+    // 也就是说这样写的意思就是去除数组中为 “假” 的元素
     if (words.filter(Boolean).length > limit) {
       setContent(
         text
-          .split(' ')
+          .split(" ")
           .slice(0, limit)
-          .join(' ')
+          .join(" ")
       );
       setWordCount(limit);
     } else {
@@ -428,24 +428,25 @@ function LimitedWordTextarea({ rows, cols, value, limit }) {
 <summary>例子</summary>
 
 ```jsx
-ReactDOM.render(
-  <LimitedWordTextArea limit={5} value="Hello there!" />,
-  document.getElementById('root')
-);
+export default function() {
+  return <LimitedWordTextarea limit={5} value="Hello there!" />;
+}
 ```
 </details>
 
-<br>[⬆ 回到顶部](#目录)
+ps:
 
+- [示例代码](https://github.com/heibaimeng/30-seconds-of-react-zh_CN-with-demo/blob/master/src/pages/Input/LimitedWordTextarea.js)
+- [运行效果](https://heibaimeng.github.io/30-seconds-of-react-demo/#/Input/LimitedWordTextarea)
 
-### MultiselectCheckbox多选复选框
+### MultiselectCheckbox复选框
 
-一个复选框列表，该列表使用回调函数将其选定的值/值传递给父组件。
+呈现一个复选框列表，该列表使用回调函数将其选定的值/值传递给父组件。
 
-* Use `React.setState()` to create a `data` state variable and set its initial value equal to the `options` prop.
-* Create a function `toggle` that is used to toggle the `checked` to update the `data` state variable and call the `onChange` callback passed via the component's props.
-* Render a `<ul>` element and use `Array.prototype.map()` to map the `data` state variable to individual `<li>` elements with `<input>` elements as their children.
-* Each `<input>` element has the `type='checkbox'` attribute and is marked as `readOnly`, as its click events are handled by the parent `<li>` element's `onClick` handler.
+* 使用`React.setState()`创建一个`data`状态变量，并将其初始值设置为等于`options`。
+* 创建一个函数`toggle`，用于切换`checked`以更新`data`状态变量，并调用通过组件的props传递的`onChange`回调。
+* 渲染一个`<ul>`元素并使用`Array.prototype.map（）`将`data`状态变量映射到单独的`<li>`元素，其中`<input>`元素作为它们的子元素。
+* 每个`<input>`元素都有`type ='checkbox'`属性并被标记为`readOnly`，因为它的click事件由父`<li>`元素的`onClick`处理程序处理。
 
 ```jsx
 const style = {
@@ -489,28 +490,31 @@ function MultiselectCheckbox({ options, onChange }) {
 <summary>例子</summary>
 
 ```jsx
-const options = [{ label: 'Item One' }, { label: 'Item Two' }];
-
-ReactDOM.render(
-  <MultiselectCheckbox
-    options={options}
-    onChange={data => {
-      console.log(data);
-    }}
-  />,
-  document.getElementById('root')
-);
+export default function() {
+  const options = [{ label: "Item One" }, { label: "Item Two" }];
+  return (
+    <MultiselectCheckbox
+      options={options}
+      onChange={data => {
+        console.log(data);
+      }}
+    />
+  );
+}
 ```
 </details>
 
-<br>[⬆ 回到顶部](#目录)
+ps:
+
+- [示例代码](https://github.com/heibaimeng/30-seconds-of-react-zh_CN-with-demo/blob/master/src/pages/Input/MultiselectCheckbox.js)
+- [运行效果](https://heibaimeng.github.io/30-seconds-of-react-demo/#/Input/MultiselectCheckbox)
 
 ### PasswordRevealer密码可见
 
-密码输入框，使用按钮来切换密码的显示、隐藏。
+使用“显示”按钮呈现密码输入字段。
 
-* Use the `React.useState()` hook to create the `shown` state variable and set its value to `false`.
-* Use a`<div>` to wrap both the`<input>` and the `<button>` element that toggles the type of the input field between `"text"` and `"password"`.
+* 使用`React.useState()`钩子创建`shown`状态变量并将其值设置为`false`。
+* 使用`div>`包装`<input>`和`<button>`元素，用于切换`text`和`password`之间输入字段的类型。
 
 ```jsx
 function PasswordRevealer({ value }) {
@@ -519,7 +523,7 @@ function PasswordRevealer({ value }) {
   return (
     <div>
       <input type={shown ? 'text' : 'password'} value={value} onChange={() => {}} />
-      <button onClick={() => setShown(!shown)}>Show/Hide</button>
+      <button onClick={() => setShown(!shown)}>显示/隐藏</button>
     </div>
   );
 }
@@ -529,30 +533,47 @@ function PasswordRevealer({ value }) {
 <summary>例子</summary>
 
 ```jsx
-ReactDOM.render(<PasswordRevealer />, document.getElementById('root'));
+export default function() {
+  return <PasswordRevealer />;
+}
 ```
 </details>
 
-<br>[⬆ 回到顶部](#目录)
+ps:
 
-### Select下拉选择框
+- [示例代码](https://github.com/heibaimeng/30-seconds-of-react-zh_CN-with-demo/blob/master/src/pages/Input/PasswordRevealer.js)
+- [运行效果](https://heibaimeng.github.io/30-seconds-of-react-demo/#/Input/PasswordRevealer)
 
-下拉选组件，使用回调函数将其值传递给父组件。
+### Select下拉选择器
 
-* Use object destructuring to set defaults for certain attributes of the `<select>` element.
-* Render a `<select>` element with the appropriate attributes and use the `callback` function in the `onChange` event to pass the value of the textarea to the parent.
-* Use destructuring on the `values` array to pass an array of `value` and `text` elements and the `selected` attribute to define the initial `value` of the `<select>` element.
+呈现一个`<select>`元素，该元素使用回调函数将其值传递给父组件。
+
+* 使用对象解构来设置`<select>`元素的某些属性的默认值。
+* 使用适当的属性渲染一个`<select>`元素，并使用`onChange`事件中的`callback`函数将textarea的值传递给父元素。
+* 在`values`数组上使用destructuring来传递`value`和`text`元素的数组以及`selected`属性来定义`<select>`元素的初始`value`。
 
 ```jsx
-function Select({ values, callback, disabled = false, readonly = false, selected }) {
+function Select({
+  values,
+  callback,
+  disabled = false,
+  readonly = false,
+  selected
+}) {
+  const [current, setCurrent] = React.useState(selected);
+  const handleChange = ({ target: { value } }) => {
+    setCurrent(value);
+    callback(value);
+  };
   return (
     <select
+      value={current}
       disabled={disabled}
       readOnly={readonly}
-      onChange={({ target: { value } }) => callback(value)}
+      onChange={handleChange}
     >
       {values.map(([value, text]) => (
-        <option selected={selected === value} value={value}>
+        <option value={value} key={value}>
           {text}
         </option>
       ))}
@@ -565,27 +586,37 @@ function Select({ values, callback, disabled = false, readonly = false, selected
 <summary>例子</summary>
 
 ```jsx
-let choices = [
-  ['grapefruit', 'Grapefruit'],
-  ['lime', 'Lime'],
-  ['coconut', 'Coconut'],
-  ['mango', 'Mango']
-];
-ReactDOM.render(
-  <Select values={choices} selected="lime" callback={val => console.log(val)} />,
-  document.getElementById('root')
-);
+export default function() {
+  let choices = [
+    ["grapefruit", "Grapefruit"],
+    ["lime", "Lime"],
+    ["coconut", "Coconut"],
+    ["mango", "Mango"]
+  ];
+  return (
+    <Select
+      values={choices}
+      selected={"lime"}
+      callback={val => {
+        console.log(val);
+      }}
+    />
+  );
+}
 ```
 </details>
 
-<br>[⬆ 回到顶部](#目录)
+ps:
+
+- [示例代码](https://github.com/heibaimeng/30-seconds-of-react-zh_CN-with-demo/blob/master/src/pages/Input/Select.js)
+- [运行效果](https://heibaimeng.github.io/30-seconds-of-react-demo/#/Input/Select)
 
 ### Slider滑块元素
 
-滑块元素，使用回调函数将其值传递给父组件。
+呈现滑块元素，使用回调函数将其值传递给父组件。
 
-* Use object destructuring to set defaults for certain attributes of the `<input>` element.
-* Render an `<input>` element of type `"range"` and the appropriate attributes, use the `callback` function in the `onChange` event to pass the value of the input to the parent.
+* 使用对象解构来设置`<input>`元素的某些属性的默认值。
+* 渲染一个类型为`range`的`<input>`元素和相应的属性，使用`onChange`事件中的`callback`函数将输入值传递给父元素。
 
 ```jsx
 function Slider({ callback, disabled = false, readOnly = false }) {
@@ -604,18 +635,23 @@ function Slider({ callback, disabled = false, readOnly = false }) {
 <summary>例子</summary>
 
 ```jsx
-ReactDOM.render(<Slider callback={val => console.log(val)} />, document.getElementById('root'));
+export default function() {
+  return <Slider callback={val => console.log(val)} />;
+}
 ```
 </details>
 
-<br>[⬆ 回到顶部](#目录)
+ps:
+
+- [示例代码](https://github.com/heibaimeng/30-seconds-of-react-zh_CN-with-demo/blob/master/src/pages/Input/Slider.js)
+- [运行效果](https://heibaimeng.github.io/30-seconds-of-react-demo/#/Input/Slider)
 
 ### TextArea多行文本
 
-多行文本组件，使用回调函数将其值传递给父组件。
+呈现一个`<textarea>`元素，该元素使用回调函数将其值传递给父组件。
 
-* Use object destructuring to set defaults for certain attributes of the `<textarea>` element.
-* Render a `<textarea>` element with the appropriate attributes and use the `callback` function in the `onChange` event to pass the value of the textarea to the parent.
+* 使用对象解构来设置`<textarea>`元素的某些属性的默认值。
+* 使用适当的属性渲染`<textarea>`元素，并使用`onChange`事件中的`callback`函数将textarea的值传递给父元素。
 
 ```jsx
 function TextArea({
@@ -643,15 +679,21 @@ function TextArea({
 <summary>例子</summary>
 
 ```jsx
-ReactDOM.render(
-  <TextArea placeholder="Insert some text here..." callback={val => console.log(val)} />,
-  document.getElementById('root')
-);
+export default function() {
+  return (
+    <TextArea
+      placeholder="Insert some text here..."
+      callback={val => console.log(val)}
+    />
+  );
+}
 ```
 </details>
 
-<br>[⬆ 回到顶部](#目录)
+ps:
 
+- [示例代码](https://github.com/heibaimeng/30-seconds-of-react-zh_CN-with-demo/blob/master/src/pages/Input/TextArea.js)
+- [运行效果](https://heibaimeng.github.io/30-seconds-of-react-demo/#/Input/TextArea)
 
 ## Object对象渲染
 ### TreeView树
@@ -782,8 +824,6 @@ ReactDOM.render(<TreeView data={data} name="data" />, document.getElementById('r
 ```
 </details>
 
-<br>[⬆ 回到顶部](#目录)
-
 
 ## String字符串渲染
 ### AutoLink自动链接
@@ -822,8 +862,6 @@ ReactDOM.render(
 );
 ```
 </details>
-
-<br>[⬆ 回到顶部](#目录)
 
 
 ## Visual视觉效果渲染
@@ -911,8 +949,6 @@ ReactDOM.render(
 ```
 </details>
 
-<br>[⬆ 回到顶部](#目录)
-
 ### Carousel轮播
 
 轮播组件。
@@ -980,8 +1016,6 @@ ReactDOM.render(
 ```
 </details>
 
-<br>[⬆ 回到顶部](#目录)
-
 ### Collapse折叠面板
 
 折叠面板组件。
@@ -1039,8 +1073,6 @@ ReactDOM.render(
 );
 ```
 </details>
-
-<br>[⬆ 回到顶部](#目录)
 
 ### CountDown倒计时
 
@@ -1123,8 +1155,6 @@ function CountDown({ hours = 0, minutes = 0, seconds = 0 }) {
 ReactDOM.render(<CountDown hours="1" minutes="45" />, document.getElementById('root'));
 ```
 </details>
-
-<br>[⬆ 回到顶部](#目录)
 
 ### FileDrop文件拖放组件
 
@@ -1229,8 +1259,6 @@ ReactDOM.render(<FileDrop handleDrop={console.log} />, document.getElementById('
 ```
 </details>
 
-<br>[⬆ 回到顶部](#目录)
-
 ### Mailto发送电子邮件
 
 格式化为发送电子邮件的链接。
@@ -1258,8 +1286,6 @@ ReactDOM.render(
 );
 ```
 </details>
-
-<br>[⬆ 回到顶部](#目录)
 
 ### Modal模态框
 
@@ -1399,8 +1425,6 @@ ReactDOM.render( <App/>, document.getElementById('root'));
 ```
 </details>
 
-<br>[⬆ 回到顶部](#目录)
-
 ### StarRating星级评分
 
 星级评分组件。
@@ -1455,8 +1479,6 @@ ReactDOM.render(<StarRating />, document.getElementById('root'));
 ReactDOM.render(<StarRating rating={2} />, document.getElementById('root'));
 ```
 </details>
-
-<br>[⬆ 回到顶部](#目录)
 
 ### Tabs选项卡组件
 
@@ -1539,8 +1561,6 @@ ReactDOM.render(
 ```
 </details>
 
-<br>[⬆ 回到顶部](#目录)
-
 ### Ticker
 
 Renders a ticker component.
@@ -1585,8 +1605,6 @@ ReactDOM.render(<Ticker times={5} interval={1000} />, document.getElementById('r
 ```
 </details>
 
-<br>[⬆ 回到顶部](#目录)
-
 ### Toggle
 
 Renders a toggle component.
@@ -1622,8 +1640,6 @@ function Toggle(props) {
 ReactDOM.render(<Toggle />, document.getElementById('root'));
 ```
 </details>
-
-<br>[⬆ 回到顶部](#目录)
 
 ### Tooltip提示
 
@@ -1682,8 +1698,6 @@ ReactDOM.render(
 );
 ```
 </details>
-
-<br>[⬆ 回到顶部](#目录)
 
 ---
 
