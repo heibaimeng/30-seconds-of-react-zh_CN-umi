@@ -82,6 +82,7 @@ yarn create umi
 * [Slider滑块元素](#Slider滑块元素)
 * [TextArea多行文本](#TextArea多行文本)
 </details>
+
 ### Object对象渲染
 
 <details>
@@ -89,6 +90,7 @@ yarn create umi
 
 * [TreeView树](#TreeView树)
 </details>
+
 ### String字符串渲染
 
 <details>
@@ -96,6 +98,7 @@ yarn create umi
 
 * [AutoLink自动链接](#AutoLink自动链接)
 </details>
+
 ### Visual视觉效果渲染
 
 <details>
@@ -218,7 +221,7 @@ function MappedTable({ data, propertyNames }) {
   let filteredData = data.map(v =>
     Object.keys(v)
       .filter(k => propertyNames.includes(k))
-      // 迭代为 acc 对象赋值：
+      // 使用 reduce 迭代，为 acc 对象赋值：
       // 回调函数为 (acc, key) => ((acc[key] = v[key]), acc) 初始值为 {}
       // ((操作), 返回值) 语法解读：括号里进行任意操作，并指定返回值
       .reduce(( acc, key) => ((acc[key] = v[key]), acc), {}),
@@ -606,7 +609,7 @@ export default function() {
 ```
 </details>
 
-ps:
+ps: 这里的实现跟官方不同，官方使用 option 的 selected 属性，但浏览器报错说不应使用，故更改为 select 的 value 属性。
 
 - [示例代码](https://github.com/heibaimeng/30-seconds-of-react-zh_CN-with-demo/blob/master/src/pages/Input/Select.js)
 - [运行效果](https://heibaimeng.github.io/30-seconds-of-react-demo/#/Input/Select)
