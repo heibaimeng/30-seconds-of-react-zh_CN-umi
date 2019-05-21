@@ -58,14 +58,14 @@ yarn create umi
 
 ## 目录
 
-### Array数组渲染
+### Array渲染数组
 
 <details>
 <summary>查看内容</summary>
 
-* [DataList数据列表](#DataList数据列表)
-* [DataTable数据表格](#DataTable数据表格)
-* [MappedTable映射表格](#MappedTable映射表格)
+* [DataList渲染为列表](#DataList渲染为列表)
+* [DataTable渲染为表格](#DataTable渲染为表格)
+* [MappedTable渲染为映射表格](#MappedTable渲染为映射表格)
 </details>
 
 ### Input输入
@@ -88,15 +88,15 @@ yarn create umi
 <details>
 <summary>查看内容</summary>
 
-* [TreeView树](#TreeView树)
+* [TreeView可折叠无限层级树组件](#TreeView可折叠无限层级树组件)
 </details>
 
-### String字符串渲染
+### String字符串处理
 
 <details>
 <summary>查看内容</summary>
 
-* [AutoLink自动链接](#AutoLink自动链接)
+* [AutoLink自动识别文本中的链接](#AutoLink自动识别文本中的链接)
 </details>
 
 ### Visual视觉效果渲染
@@ -120,9 +120,9 @@ yarn create umi
 
 ---
 
-## Array数组渲染
+## Array渲染数组
 
-### DataList数据列表
+### DataList渲染为列表
 
 通过数组渲染元素列表。
 
@@ -161,7 +161,7 @@ ps:
 - [示例代码](https://github.com/heibaimeng/30-seconds-of-react-zh_CN-with-demo/blob/master/src/pages/Array/DataList.js)
 - [运行效果](https://heibaimeng.github.io/30-seconds-of-react-demo/#/Array/DataList)
 
-### DataTable数据表格
+### DataTable渲染为表格
 
 通过数组渲染表格，动态创建每一行。
 
@@ -207,7 +207,7 @@ ps:
 - [示例代码](https://github.com/heibaimeng/30-seconds-of-react-zh_CN-with-demo/blob/master/src/pages/Array/DataTable.js)
 - [运行效果](https://heibaimeng.github.io/30-seconds-of-react-demo/#/Array/DataTable)
 
-### MappedTable映射表格
+### MappedTable渲染为映射表格
 
 通过对象数组渲染表格，属性名称与列对应，动态创建每一行。
 
@@ -699,24 +699,26 @@ ps:
 - [运行效果](https://heibaimeng.github.io/30-seconds-of-react-demo/#/Input/TextArea)
 
 ## Object对象渲染
-### TreeView树
+### TreeView可折叠无限层级树组件
 
-具有可折叠内容的JSON对象或数组的树组件。
+可折叠、无限层级、支持数组和对象的树组件。
 
-* Use object destructuring to set defaults for certain props.
-* Use the value of the `toggled` prop to determine the initial state of the content (collapsed/expanded).
-* Use the `React.setState()` hook to create the `isToggled` state variable and give it the value of the `toggled` prop initially.
-* Return a `<div>` to wrap the contents of the component and the `<span>` element, used to alter the component's `isToggled` state.
-* Determine the appearance of the component, based on `isParentToggled`, `isToggled`, `name` and `Array.isArray()` on `data`.
-* For each child in `data`, determine if it is an object or array and recursively render a sub-tree.
-* Otherwise, render a `<p>` element with the appropriate style.
+* 使用对象解构来设置某些传入属性的默认值。
+* 使用传入的 `toggled` 属性来确定内容的初始状态（折叠/展开）。
+* 使用`React.setState()` hook 来创建`isToggled`状态变量，并在最初为它赋予传入的 `toggled`的值。
+* 返回一个`<div>`来包装组件的内容和用于改变组件的`isToggled`状态的`<span>`元素。
+* 根据`data`上的`isParentToggled`，`isToggled`，`name`和`Array.isArray()`确定组件的外观。
+* 对于`data`中的每个子节点，确定它是对象还是数组，并递归渲染子树。
+* 否则，使用适当的样式渲染一个`<p>`元素。
+
+样式：
 
 ```css
+/* 树节点的基本样式 */
 .tree-element {
   margin: 0;
   position: relative;
 }
-
 div.tree-element:before {
   content: '';
   position: absolute;
@@ -726,6 +728,7 @@ div.tree-element:before {
   border-left: 1px solid gray;
 }
 
+/* 切换显示、隐藏的按钮元素 */
 .toggler {
   position: absolute;
   top: 10px;
@@ -737,61 +740,79 @@ div.tree-element:before {
   border-left: 5px solid gray;
   cursor: pointer;
 }
-
 .toggler.closed {
   transform: rotate(90deg);
 }
 
+/* 隐藏节点内容 */
 .collapsed {
   display: none;
 }
 ```
 
+树组件：
+
 ```jsx
+import styles from "./TreeView.css";
+
 function TreeView({
+  // 使用对象解构来设置某些传入属性的默认值
   data,
-  toggled = true,
-  name = null,
-  isLast = true,
-  isChildElement = false,
-  isParentToggled = true
+  toggled = true, // 折叠按钮，是否处于折叠状态
+  name = null, // 当前属性名，如果子元素是对象显示
+  isLast = true, // 是否最后一个
+  isChildElement = false, // 是否子元素
+  isParentToggled = true // 是否被父节点折叠
 }) {
   const [isToggled, setIsToggled] = React.useState(toggled);
 
   return (
     <div
-      style={{ marginLeft: isChildElement ? 16 : 4 + 'px' }}
-      className={isParentToggled ? 'tree-element' : 'tree-element collapsed'}
+      style={{ marginLeft: isChildElement ? 16 : 4 + "px" }}
+      // 如果父折叠就隐藏
+      className={isParentToggled ? styles["tree-element"] : styles.collapsed}
     >
+      {/* 折叠按钮，点击设置反状态 */}
       <span
-        className={isToggled ? 'toggler' : 'toggler closed'}
+        className={
+          isToggled ? styles.toggler : `${styles.toggler} ${styles.closed}`
+        }
         onClick={() => setIsToggled(!isToggled)}
       />
       {name ? <strong>&nbsp;&nbsp;{name}: </strong> : <span>&nbsp;&nbsp;</span>}
-      {Array.isArray(data) ? '[' : '{'}
-      {!isToggled && '...'}
+      {/* 开始符 */}
+      {Array.isArray(data) ? "[" : "{"}
+      {/* 子元素被折叠 */}
+      {!isToggled && "..."}
+      {/* 渲染对象的子元素 */}
       {Object.keys(data).map((v, i, a) =>
-        typeof data[v] == 'object' ? (
+        // 是对象，递归调用自身
+        typeof data[v] == "object" ? (
           <TreeView
             data={data[v]}
+            key={i}
             isLast={i === a.length - 1}
+            // 子元素的属性名，对象需要显示属性名，数组不显示
             name={Array.isArray(data) ? null : v}
             isChildElement
             isParentToggled={isParentToggled && isToggled}
           />
-        ) : (
+        ) : ( // 不是对象，显示内容即可
           <p
-            style={{ marginLeft: 16 + 'px' }}
-            className={isToggled ? 'tree-element' : 'tree-element collapsed'}
+            key={i}
+            style={{ marginLeft: 16 + "px" }}
+            className={isToggled ? styles["tree-element"] : styles.collapsed}
           >
-            {Array.isArray(data) ? '' : <strong>{v}: </strong>}
+            {Array.isArray(data) ? "" : <strong>{v}: </strong>}
             {data[v]}
-            {i === a.length - 1 ? '' : ','}
+            {i === a.length - 1 ? "" : ","}
           </p>
         )
       )}
-      {Array.isArray(data) ? ']' : '}'}
-      {!isLast ? ',' : ''}
+      {/* 结束符 */}
+      {Array.isArray(data) ? "]" : "}"}
+      {/* 不是最后元素，加个逗号 */}
+      {!isLast ? "," : ""}
     </div>
   );
 }
@@ -801,52 +822,71 @@ function TreeView({
 <summary>例子</summary>
 
 ```jsx
-let data = {
-  lorem: {
-    ipsum: 'dolor sit',
-    amet: {
-      consectetur: 'adipiscing',
-      elit: [
-        'duis',
-        'vitae',
-        {
-          semper: 'orci'
-        },
-        {
-          est: 'sed ornare'
-        },
-        'etiam',
-        ['laoreet', 'tincidunt'],
-        ['vestibulum', 'ante']
-      ]
-    },
-    ipsum: 'primis'
-  }
-};
-ReactDOM.render(<TreeView data={data} name="data" />, document.getElementById('root'));
+export default function() {
+  let data = {
+    lorem: {
+      ipsum: "dolor sit",
+      amet: {
+        consectetur: "adipiscing",
+        elit: [
+          "duis",
+          "vitae",
+          {
+            semper: "orci"
+          },
+          {
+            est: "sed ornare"
+          },
+          "etiam",
+          ["laoreet", "tincidunt"],
+          ["vestibulum", "ante"]
+        ]
+      },
+      ipsum: "primis"
+    }
+  };
+  return <TreeView data={data} name="data" />;
+}
 ```
 </details>
 
 
-## String字符串渲染
-### AutoLink自动链接
+ps:
+
+- [示例代码](https://github.com/heibaimeng/30-seconds-of-react-zh_CN-with-demo/blob/master/src/pages/Object/TreeView.js)
+- [运行效果](https://heibaimeng.github.io/30-seconds-of-react-demo/#/Object/TreeView)
+
+
+## String字符串处理
+### AutoLink自动识别文本中的链接
 
 将字符串中的URL转换为适当的 `<a>` 元素。
 
-* Use `String.prototype.split()` and `String.prototype.match()` with a regular expression to find URLs in a string.
-* Return a `<React.Fragment>` with matched URLs rendered as `<a>` elements, dealing with missing protocol prefixes if necessary, and the rest of the string rendered as plaintext.
+* 使用正则表达式配合 `String.prototype.split()` 和 `String.prototype.match()`来查找字符串中的URL。
+* 返回一个`<React.Fragment>`不产生多余的元素；其匹配的URL呈现为`<a>`元素，必要时需要处理丢失的协议前缀补充为`http://`，并将其余字符串呈现为明文。
 
 ```jsx
+import React from "react";
 function AutoLink({ text }) {
+  // 用于找 url 的正则表达式
   const delimiter = /((?:https?:\/\/)?(?:(?:[a-z0-9]?(?:[a-z0-9\-]{1,61}[a-z0-9])?\.[^\.|\s])+[a-z\.]*[a-z]+|(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)(?:\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3})(?::\d{1,5})*[a-z0-9.,_\/~#&=;%+?\-\\(\\)]*)/gi;
 
   return (
     <React.Fragment>
+      {/* 按正则分割为数组，最终渲染时被显示在了一起 */}
       {text.split(delimiter).map(word => {
+        // foo bar baz
+        // http://example.org
+        //  bar
+        console.log(word);
+        // 从以上分割的内容中找到具体的url的部分
+        // 进行超链接的处理
         let match = word.match(delimiter);
         if (match) {
           let url = match[0];
-          return <a href={url.startsWith('http') ? url : `http://${url}`}>{url}</a>;
+          return (
+            <a href={url.startsWith("http") ? url : `http://${url}`} key={url} target="_blank">{url}</a>
+          );
         }
         return word;
       })}
@@ -859,12 +899,16 @@ function AutoLink({ text }) {
 <summary>例子</summary>
 
 ```jsx
-ReactDOM.render(
-  <AutoLink text="foo bar baz http://example.org bar" />,
-  document.getElementById('root')
-);
+export default function() {
+  return <AutoLink text="foo bar baz http://example.org barhttp://baidu.com 123" />;
+}
 ```
+
 </details>
+
+
+- [示例代码](https://github.com/heibaimeng/30-seconds-of-react-zh_CN-with-demo/blob/master/src/pages/String/AutoLink.js)
+- [运行效果](https://heibaimeng.github.io/30-seconds-of-react-demo/#/String/AutoLink)
 
 
 ## Visual视觉效果渲染
