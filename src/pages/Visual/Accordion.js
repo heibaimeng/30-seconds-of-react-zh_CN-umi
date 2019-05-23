@@ -52,6 +52,7 @@ function Accordion(props) {
         <AccordionItem
           isCollapsed={bindIndex === props.index}
           label={props.label}
+          key={props.index}
           handleClick={() => changeItem(props.index)}
           children={props.children}
         />
@@ -63,10 +64,10 @@ function Accordion(props) {
 export default function() {
   return (
     <Accordion defaultIndex="1" onItemClick={console.log}>
-      <AccordionItem label="A" index="1">
+      <AccordionItem label="A" index="1" key="1">
         Lorem ipsum
       </AccordionItem>
-      <AccordionItem label="B" index="2">
+      <AccordionItem label="B" index="2" key="2">
         Dolor sit amet
       </AccordionItem>
     </Accordion>

@@ -1096,11 +1096,11 @@ export default function() {
 
 折叠面板组件。
 
-* Use the `React.setState()` hook to create the `isCollapsed` state variable with an initial value of `props.collapsed`.
-* Use an object, `style`, to hold the styles for individual components and their states.
-* Use a `<div>` to wrap both the `<button>` that alters the component's `isCollapsed` state and the content of the component, passed down via `props.children`.
-* Determine the appearance of the content, based on `isCollapsed` and apply the appropriate CSS rules from the `style` object.
-* Finally, update the value of the `aria-expanded` attribute based on `isCollapsed` to make the component accessible.
+* 使用`React.setState()` hook 创建`isCollapsed`状态变量，初始值为`props.collapsed`。
+* 使用一个对象`style`来保存单个组件及其状态的样式。
+* 使用`<div>`来包装改变组件的`isCollapsed`状态的`<button>`和组件的内容，通过`props.children`传递。
+* 根据`isCollapsed`确定内容的外观，并从`style`对象应用适当的CSS规则。
+* 最后，根据`isCollapsed`更新`aria-expanded`属性的值。
 
 ```jsx
 function Collapse(props) {
@@ -1108,25 +1108,30 @@ function Collapse(props) {
 
   const style = {
     collapsed: {
-      display: 'none'
+      display: "none"
     },
     expanded: {
-      display: 'block'
+      display: "block"
     },
     buttonStyle: {
-      display: 'block',
-      width: '100%'
+      display: "block",
+      width: "100%"
     }
   };
 
   return (
     <div>
-      <button style={style.buttonStyle} onClick={() => setIsCollapsed(!isCollapsed)}>
-        {isCollapsed ? 'Show' : 'Hide'} content
+      <button
+        style={style.buttonStyle}
+        onClick={() => setIsCollapsed(!isCollapsed)}
+      >
+        {isCollapsed ? "显示" : "隐藏"} 内容
       </button>
       <div
         className="collapse-content"
+        // 决定显示和折叠
         style={isCollapsed ? style.collapsed : style.expanded}
+        // aria-expanded 是给 Screen Reader 用来 判断当前元素状态的辅助属性
         aria-expanded={isCollapsed}
       >
         {props.children}
@@ -1151,8 +1156,8 @@ export default function() {
 ```
 </details>
 
-- [示例代码](./src/pages/Visual/Collapse.js)
-- [运行效果](http://localhost:8000/30-seconds-of-react-demo/#/Visual/Collapse)
+- [示例代码](https://github.com/heibaimeng/30-seconds-of-react-zh_CN-with-demo/blob/master/src/pages/Visual/Collapse.js)
+- [运行效果](https://heibaimeng.github.io/30-seconds-of-react-demo/#/Visual/Collapse)
 
 ### CountDown倒计时
 
@@ -1238,7 +1243,7 @@ export default function() {
 ```
 </details>
 
-- [示例代码](./src/pages/Visual/CountDown.js)
+- [示例代码](https://github.com/heibaimeng/30-seconds-of-react-zh_CN-with-demo/blob/master/src/pages/Visual/CountDown.js)
 - [运行效果](http://localhost:8000/30-seconds-of-react-demo/#/Visual/CountDown)
 
 ### FileDrop文件拖放组件
@@ -1347,7 +1352,7 @@ export default function() {
 </details>
 
 
-- [示例代码](./src/pages/Visual/FileDrop.js)
+- [示例代码](https://github.com/heibaimeng/30-seconds-of-react-zh_CN-with-demo/blob/master/src/pages/Visual/FileDrop.js)
 - [运行效果](http://localhost:8000/30-seconds-of-react-demo/#/Visual/FileDrop)
 
 
@@ -1381,7 +1386,7 @@ export default function() {
 </details>
 
 
-- [示例代码](./src/pages/Visual/Mailto.js)
+- [示例代码](https://github.com/heibaimeng/30-seconds-of-react-zh_CN-with-demo/blob/master/src/pages/Visual/Mailto.js)
 - [运行效果](http://localhost:8000/30-seconds-of-react-demo/#/Visual/Mailto)
 
 ### Modal模态框
@@ -1528,7 +1533,7 @@ export default function() {
 ```
 </details>
 
-- [示例代码](./src/pages/Visual/Modal.js)
+- [示例代码](https://github.com/heibaimeng/30-seconds-of-react-zh_CN-with-demo/blob/master/src/pages/Visual/Modal.js)
 - [运行效果](http://localhost:8000/30-seconds-of-react-demo/#/Visual/Modal)
 
 ### StarRating星级评分
@@ -1590,7 +1595,7 @@ export default function() {
 ```
 </details>
 
-- [示例代码](./src/pages/Visual/StarRating.js)
+- [示例代码](https://github.com/heibaimeng/30-seconds-of-react-zh_CN-with-demo/blob/master/src/pages/Visual/StarRating.js)
 - [运行效果](http://localhost:8000/30-seconds-of-react-demo/#/Visual/StarRating)
 
 ### Tabs选项卡组件
@@ -1675,7 +1680,7 @@ export default function() {
 ```
 </details>
 
-- [示例代码](./src/pages/Visual/Tabs.js)
+- [示例代码](https://github.com/heibaimeng/30-seconds-of-react-zh_CN-with-demo/blob/master/src/pages/Visual/Tabs.js)
 - [运行效果](http://localhost:8000/30-seconds-of-react-demo/#/Visual/Tabs)
 
 ### Ticker
@@ -1724,7 +1729,7 @@ export default function() {
 ```
 </details>
 
-- [示例代码](./src/pages/Visual/Ticker.js)
+- [示例代码](https://github.com/heibaimeng/30-seconds-of-react-zh_CN-with-demo/blob/master/src/pages/Visual/Ticker.js)
 - [运行效果](http://localhost:8000/30-seconds-of-react-demo/#/Visual/Ticker)
 
 ### Toggle
@@ -1765,7 +1770,7 @@ export default function() {
 ```
 </details>
 
-- [示例代码](./src/pages/Visual/Toggle.js)
+- [示例代码](https://github.com/heibaimeng/30-seconds-of-react-zh_CN-with-demo/blob/master/src/pages/Visual/Toggle.js)
 - [运行效果](http://localhost:8000/30-seconds-of-react-demo/#/Visual/Toggle)
 
 ### Tooltip提示
@@ -1827,7 +1832,7 @@ export default function() {
 ```
 </details>
 
-- [示例代码](./src/pages/Visual/Tooltip.js)
+- [示例代码](https://github.com/heibaimeng/30-seconds-of-react-zh_CN-with-demo/blob/master/src/pages/Visual/Tooltip.js)
 - [运行效果](http://localhost:8000/30-seconds-of-react-demo/#/Visual/Tooltip)
 
 ---
