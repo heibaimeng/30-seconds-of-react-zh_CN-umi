@@ -8,7 +8,7 @@ yarn install
 yarn dev
 ```
 
-以下是正式内容(翻译完成之前，每天保持更新)：
+共 25 个组件，目前完成进度为 15 / 25 。以下是正式内容：
 
 ![Logo](/logo.png)
 
@@ -104,8 +104,8 @@ yarn create umi
 <details>
 <summary>查看内容</summary>
 
-* [Accordion手风琴效果](#Accordion手风琴效果)
-* [Carousel轮播](#Carousel轮播)
+* [Accordion手风琴组件](#Accordion手风琴组件)
+* [Carousel轮播组件](#Carousel轮播组件)
 * [Collapse折叠面板](#Collapse折叠面板)
 * [CountDown倒计时](#CountDown倒计时)
 * [FileDrop文件拖放组件](#FileDrop文件拖放组件)
@@ -448,7 +448,7 @@ ps:
 
 * 使用`React.setState()`创建一个`data`状态变量，并将其初始值设置为等于`options`。
 * 创建一个函数`toggle`，用于切换`checked`以更新`data`状态变量，并调用通过组件的props传递的`onChange`回调。
-* 渲染一个`<ul>`元素并使用`Array.prototype.map（）`将`data`状态变量映射到单独的`<li>`元素，其中`<input>`元素作为它们的子元素。
+* 渲染一个`<ul>`元素并使用`Array.prototype.map()`将`data`状态变量映射到单独的`<li>`元素，其中`<input>`元素作为它们的子元素。
 * 每个`<input>`元素都有`type ='checkbox'`属性并被标记为`readOnly`，因为它的click事件由父`<li>`元素的`onClick`处理程序处理。
 
 ```jsx
@@ -912,56 +912,71 @@ export default function() {
 
 
 ## Visual视觉效果渲染
-### Accordion手风琴效果
+### Accordion手风琴组件
 
 手风琴效果组件，包含多个可折叠内容。
 
-* Define an `AccordionItem` component, pass it to the `Accordion` and remove unnecessary nodes expect for `AccordionItem` by identifying the function's name in `props.children`.
-* Each `AccordionItem` component renders a `<button>` that is used to update the `Accordion` via the `props.handleClick` callback and the content of the component, passed down via `props.children`, while its appearance is determined by `props.isCollapsed` and based on `style`.
-* In the `Accordion` component, use the `React.useState()` hook to initialize the value of the `bindIndex` state variable to `props.defaultIndex`.
-* Use `Array.prototype.map` on the collected nodes to render the individual collapsiple elements.
-* Define `changeItem`, which will be executed when clicking an `AccordionItem`'s `<button>`.
-`changeItem` executes the passed callback, `onItemClick` and updates `bindIndex` based on the clicked element.
+* 定义一个`AccordionItem`组件，将它传递给`Accordion`。并通过在`props.children`中识别函数的名称来删除`AccordionItem`所需的不必要的节点。
+* 每个`AccordionItem`组有一个`<button>`，用于通过`props.handleClick`回调更新`Accordion`和组件的内容，通过`props.children`向下传递，它的折叠状态由`props.isCollapsed`确定。
+* 在`Accordion`组件中，使用`React.useState()`钩子将`bindIndex`状态变量的值初始化为`props.defaultIndex`。
+* 在收集的节点上使用`Array.prototype.map`来渲染单个可折叠的元素。
+* 定义`changeItem`，它将在单击`AccordionItem`的`<button>`时执行。
+`changeItem`执行传递的回调，`onItemClick`并根据点击的元素更新`bindIndex`。
+
+AccordionItem 组件：
 
 ```jsx
+import React from "react";
 function AccordionItem(props) {
   const style = {
     collapsed: {
-      display: 'none'
+      display: "none"
     },
     expanded: {
-      display: 'block'
+      display: "block"
     },
     buttonStyle: {
-      display: 'block',
-      width: '100%'
+      display: "block",
+      width: "100%"
     }
   };
 
   return (
     <div>
+      {/* 按钮，点击传入的 handleClick */}
       <button style={style.buttonStyle} onClick={() => props.handleClick()}>
         {props.label}
       </button>
+      {/* 控制显示、隐藏状态 */}
       <div
         className="collapse-content"
         style={props.isCollapsed ? style.collapsed : style.expanded}
         aria-expanded={props.isCollapsed}
       >
+        {/* 内容 */}
         {props.children}
       </div>
     </div>
   );
 }
+```
 
+Accordion 组件：
+
+```js
 function Accordion(props) {
+  // 目前显示的 index
   const [bindIndex, setBindIndex] = React.useState(props.defaultIndex);
-
+  // 点击即把 bindIndex 设置为自己
   const changeItem = itemIndex => {
-    if (typeof props.onItemClick === 'function') props.onItemClick(itemIndex);
+    if (typeof props.onItemClick === "function") props.onItemClick(itemIndex);
     if (itemIndex !== bindIndex) setBindIndex(itemIndex);
   };
-  const items = props.children.filter(item => item.type.name === 'AccordionItem');
+  // 筛选出传入的 AccordionItem 组件，忽略其他
+  const items = props.children.filter(
+    // 组件名
+    item => item.type.name === "AccordionItem"
+  );
 
   return (
     <div className="wrapper">
@@ -982,63 +997,73 @@ function Accordion(props) {
 <summary>例子</summary>
 
 ```jsx
-ReactDOM.render(
-  <Accordion defaultIndex="1" onItemClick={console.log}>
-    <AccordionItem label="A" index="1">
-      Lorem ipsum
-    </AccordionItem>
-    <AccordionItem label="B" index="2">
-      Dolor sit amet
-    </AccordionItem>
-  </Accordion>,
-  document.getElementById('root')
-);
+export default function() {
+  return (
+    <Accordion defaultIndex="1" onItemClick={console.log}>
+      <AccordionItem label="A" index="1">
+        Lorem ipsum
+      </AccordionItem>
+      <AccordionItem label="B" index="2">
+        Dolor sit amet
+      </AccordionItem>
+    </Accordion>
+  );
+}
 ```
 </details>
 
-### Carousel轮播
+
+- [示例代码](https://github.com/heibaimeng/30-seconds-of-react-zh_CN-with-demo/blob/master/src/pages/Visual/Accordion.js)
+- [运行效果](https://heibaimeng.github.io/30-seconds-of-react-demo/#/Visual/Accordion)
+
+### Carousel轮播组件
 
 轮播组件。
 
-* Use the `React.setState()` hook to create the `active` state variable and give it a value of `0` (index of the first item).
-* Use an object, `style`, to hold the styles for the individual components.
-* Use the `React.setEffect()` hook to update the value of `active` to the index of the next item, using `setTimeout`.
-* Destructure `props`, compute if visibility style should be set to `visible` or not for each carousel item while mapping over and applying the combined style to the carousel item component accordingly.
-* Render the carousel items using `React.cloneElement()` and pass down rest `props` along with the computed styles.
+* 使用`React.setState()` hook 来创建`active`状态变量，并给它一个值'0'（第一项的索引）。
+* 使用`style`对象来保存各个组件的样式。
+* 使用`React.setEffect()` hook 使用`setTimeout`将`active`的值更新为下一个项的索引。
+* 构造`props`，计算是否应将可见性样式设置为“可见”或不对每个轮播项目进行映射，并相应地将组合样式应用于轮播项目组件。
+* 使用`React.cloneElement()`渲染轮播项目，并将其余的`props`与计算出的样式一起传递下来。
 
 ```jsx
 function Carousel(props) {
+  // active 当前轮播激活的索引
   const [active, setActive] = React.useState(0);
-  let scrollInterval = null;
   const style = {
     carousel: {
-      position: 'relative'
+      position: "relative"
     },
     carouselItem: {
-      position: 'absolute',
-      visibility: 'hidden'
+      position: "absolute",
+      visibility: "hidden"
     },
     visible: {
-      visibility: 'visible'
+      visibility: "visible"
     }
   };
   React.useEffect(() => {
-    scrollInterval = setTimeout(() => {
+    // 将 active 的值更新为下一个项的索引
+    setTimeout(() => {
       const { carouselItems } = props;
+      // 因为 active 在 render 中使用了， active 改变会影响视图而重新渲染，所以也会再次触发 useEffect
       setActive((active + 1) % carouselItems.length);
-    }, 2000);
+    }, 1000);
   });
   const { carouselItems, ...rest } = props;
   return (
     <div style={style.carousel}>
       {carouselItems.map((item, index) => {
+        // 激活就显示，否则隐藏
         const activeStyle = active === index ? style.visible : {};
+        // 克隆出一个组件来渲染
         return React.cloneElement(item, {
           ...rest,
           style: {
             ...style.carouselItem,
             ...activeStyle
-          }
+          },
+          key: index
         });
       })}
     </div>
@@ -1050,18 +1075,22 @@ function Carousel(props) {
 <summary>例子</summary>
 
 ```jsx
-ReactDOM.render(
-  <Carousel
-    carouselItems={[
-      <div>carousel item 1</div>,
-      <div>carousel item 2</div>,
-      <div>carousel item 3</div>
-    ]}
-  />,
-  document.getElementById('root')
-);
+export default function() {
+  return (
+    <Carousel
+      carouselItems={[
+        <div>carousel item 1</div>,
+        <div>carousel item 2</div>,
+        <div>carousel item 3</div>
+      ]}
+    />
+  );
+}
 ```
 </details>
+
+- [示例代码](https://github.com/heibaimeng/30-seconds-of-react-zh_CN-with-demo/blob/master/src/pages/Visual/Carousel.js)
+- [运行效果](https://heibaimeng.github.io/30-seconds-of-react-demo/#/Visual/Carousel)
 
 ### Collapse折叠面板
 
@@ -1111,15 +1140,19 @@ function Collapse(props) {
 <summary>例子</summary>
 
 ```jsx
-ReactDOM.render(
-  <Collapse>
-    <h1>This is a collapse</h1>
-    <p>Hello world!</p>
-  </Collapse>,
-  document.getElementById('root')
-);
+export default function() {
+  return (
+    <Collapse>
+      <h1>This is a collapse</h1>
+      <p>Hello world!</p>
+    </Collapse>
+  );
+}
 ```
 </details>
+
+- [示例代码](./src/pages/Visual/Collapse.js)
+- [运行效果](http://localhost:8000/30-seconds-of-react-demo/#/Visual/Collapse)
 
 ### CountDown倒计时
 
@@ -1199,9 +1232,14 @@ function CountDown({ hours = 0, minutes = 0, seconds = 0 }) {
 <summary>例子</summary>
 
 ```jsx
-ReactDOM.render(<CountDown hours="1" minutes="45" />, document.getElementById('root'));
+export default function() {
+  return <CountDown hours="1" minutes="45" />;
+}
 ```
 </details>
+
+- [示例代码](./src/pages/Visual/CountDown.js)
+- [运行效果](http://localhost:8000/30-seconds-of-react-demo/#/Visual/CountDown)
 
 ### FileDrop文件拖放组件
 
@@ -1302,9 +1340,16 @@ function FileDrop(props) {
 <summary>例子</summary>
 
 ```jsx
-ReactDOM.render(<FileDrop handleDrop={console.log} />, document.getElementById('root'));
+export default function() {
+  return <FileDrop handleDrop={console.log} />;
+}
 ```
 </details>
+
+
+- [示例代码](./src/pages/Visual/FileDrop.js)
+- [运行效果](http://localhost:8000/30-seconds-of-react-demo/#/Visual/FileDrop)
+
 
 ### Mailto发送电子邮件
 
@@ -1325,14 +1370,19 @@ function Mailto({ email, subject, body, ...props }) {
 <summary>例子</summary>
 
 ```jsx
-ReactDOM.render(
-  <Mailto email="foo@bar.baz" subject="Hello" body="Hello world!">
-    Mail me!
-  </Mailto>,
-  document.getElementById('root')
-);
+export default function() {
+  return (
+    <Mailto email="foo@bar.baz" subject="Hello" body="Hello world!">
+      Mail me!
+    </Mailto>
+  );
+}
 ```
 </details>
+
+
+- [示例代码](./src/pages/Visual/Mailto.js)
+- [运行效果](http://localhost:8000/30-seconds-of-react-demo/#/Visual/Mailto)
 
 ### Modal模态框
 
@@ -1345,6 +1395,8 @@ ReactDOM.render(
 * Use the `isVisible` prop to determine if the modal should be shown or not.
 * Use CSS to style and position the modal component.
 
+样式：
+
 ```css
 .modal {
   position: fixed;
@@ -1353,7 +1405,7 @@ ReactDOM.render(
   left: 0;
   right:0;
   width: 100%;
-  z-index: 9999;  
+  z-index: 9999;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1415,6 +1467,8 @@ ReactDOM.render(
 }
 ```
 
+组件：
+
 ```jsx
 function Modal({ isVisible = false, title, content, footer, onClose }){  
   React.useEffect(() => {
@@ -1450,27 +1504,32 @@ function Modal({ isVisible = false, title, content, footer, onClose }){
 <summary>例子</summary>
 
 ```jsx
-//Add the component to the render function
+// 将组件添加到 render 函数
 function App() {
-  const [ isModal, setModal] = React.useState(false);
-  
+  const [isModal, setModal] = React.useState(false);
+
   return (
     <React.Fragment>
-      <button onClick={()=> setModal(true)}>Click Here</button>
-      <Modal 
-        isVisible={ isModal }
-        title= "Modal Title"
-        content = {<p>Add your content here</p>}
-        footer = {<button>Cancel</button>}
-        onClose ={()=> setModal(false)}
+      <button onClick={() => setModal(true)}>Click Here</button>
+      <Modal
+        isVisible={isModal}
+        title="Modal Title"
+        content={<p>Add your content here</p>}
+        footer={<button>Cancel</button>}
+        onClose={() => setModal(false)}
       />
     </React.Fragment>
-  )
+  );
 }
 
-ReactDOM.render( <App/>, document.getElementById('root'));
+export default function() {
+  return <App />;
+}
 ```
 </details>
+
+- [示例代码](./src/pages/Visual/Modal.js)
+- [运行效果](http://localhost:8000/30-seconds-of-react-demo/#/Visual/Modal)
 
 ### StarRating星级评分
 
@@ -1522,10 +1581,17 @@ function StarRating(props) {
 <summary>例子</summary>
 
 ```jsx
-ReactDOM.render(<StarRating />, document.getElementById('root'));
-ReactDOM.render(<StarRating rating={2} />, document.getElementById('root'));
+export default function() {
+  return <div>
+    <StarRating />
+    <StarRating rating={2} />
+  </div>;
+}
 ```
 </details>
+
+- [示例代码](./src/pages/Visual/StarRating.js)
+- [运行效果](http://localhost:8000/30-seconds-of-react-demo/#/Visual/StarRating)
 
 ### Tabs选项卡组件
 
@@ -1594,19 +1660,23 @@ function Tabs(props) {
 <summary>例子</summary>
 
 ```jsx
-ReactDOM.render(
-  <Tabs defaultIndex="1" onTabClick={console.log}>
-    <TabItem label="A" index="1">
-      Lorem ipsum
-    </TabItem>
-    <TabItem label="B" index="2">
-      Dolor sit amet
-    </TabItem>
-  </Tabs>,
-  document.getElementById('root')
-);
+export default function() {
+  return (
+    <Tabs defaultIndex="1" onTabClick={console.log}>
+      <TabItem label="A" index="1">
+        Lorem ipsum
+      </TabItem>
+      <TabItem label="B" index="2">
+        Dolor sit amet
+      </TabItem>
+    </Tabs>
+  );
+}
 ```
 </details>
+
+- [示例代码](./src/pages/Visual/Tabs.js)
+- [运行效果](http://localhost:8000/30-seconds-of-react-demo/#/Visual/Tabs)
 
 ### Ticker
 
@@ -1648,9 +1718,14 @@ function Ticker(props) {
 <summary>例子</summary>
 
 ```jsx
-ReactDOM.render(<Ticker times={5} interval={1000} />, document.getElementById('root'));
+export default function() {
+  return <Ticker times={5} interval={1000} />;
+}
 ```
 </details>
+
+- [示例代码](./src/pages/Visual/Ticker.js)
+- [运行效果](http://localhost:8000/30-seconds-of-react-demo/#/Visual/Ticker)
 
 ### Toggle
 
@@ -1684,9 +1759,14 @@ function Toggle(props) {
 <summary>例子</summary>
 
 ```jsx
-ReactDOM.render(<Toggle />, document.getElementById('root'));
+export default function() {
+  return <Toggle />;
+}
 ```
 </details>
+
+- [示例代码](./src/pages/Visual/Toggle.js)
+- [运行效果](http://localhost:8000/30-seconds-of-react-demo/#/Visual/Toggle)
 
 ### Tooltip提示
 
@@ -1737,14 +1817,18 @@ function Tooltip({ children, text, ...rest }) {
 <summary>例子</summary>
 
 ```jsx
-ReactDOM.render(
-  <Tooltip text="Simple tooltip">
-    <button>Hover me!</button>
-  </Tooltip>,
-  document.getElementById('root')
-);
+export default function() {
+  return (
+    <Tooltip text="Simple tooltip">
+      <button>Hover me!</button>
+    </Tooltip>
+  );
+}
 ```
 </details>
+
+- [示例代码](./src/pages/Visual/Tooltip.js)
+- [运行效果](http://localhost:8000/30-seconds-of-react-demo/#/Visual/Tooltip)
 
 ---
 
