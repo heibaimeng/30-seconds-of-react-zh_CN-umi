@@ -1258,20 +1258,19 @@ export default function() {
 </details>
 
 - [示例代码](https://github.com/heibaimeng/30-seconds-of-react-zh_CN-with-demo/blob/master/src/pages/Visual/CountDown.js)
-- [运行效果](http://localhost:8000/30-seconds-of-react-demo/#/Visual/CountDown)
+- [运行效果](https://heibaimeng.github.io/30-seconds-of-react-demo/#/Visual/CountDown)
 
 ### FileDrop文件拖放组件
 
 文件拖放组件。
 
-* Create a ref called `dropRef` for this component.
-* Use the `React.useState()` hook to create the `drag` and `filename` variables, initialized to `false` and `''` respectively.
-The variables `dragCounter` and `drag` are used to determine if a file is being dragged, while `filename` is used to store the dropped file's name.
-* Create the `handleDrag`, `handleDragIn`, `handleDragOut` and `handleDrop` methods to handle drag and drop functionality, bind them to the component's context.
-* Each of the methods will handle a specific event, the listeners for which are created and removed in the `React.useEffect()` hook and its attached `cleanup()` method.
-* `handleDrag` prevents the browser from opening the dragged file, `handleDragIn` and `handleDragOut` handle the dragged file entering and exiting the component, while `handleDrop` handles the file being dropped and passes it to `props.handleDrop`.
-* Return an appropriately styled `<div>` and use `drag` and `filename` to determine its contents and style.
-* Finally, bind the `ref` of the created `<div>` to `dropRef`.
+* 为此组件创建一个名为`dropRef`的引用。
+* 使用`React.useState()`钩子来创建`drag`和`filename`变量，分别初始化为`false`和空字符串。变量`dragCounter`和`drag`用于确定是否正在拖动文件，而`filename`用于存储被删除文件的名称。
+* 创建`handleDrag`，`handleDragIn`，`handleDragOut`和`handleDrop`方法来处理拖放功能，将它们绑定到组件的上下文。
+* 每个方法都将处理一个特定的事件，在`React.useEffect()`钩子及其附加的`cleanup()`方法中创建和删除它的监听器。
+* `handleDrag`阻止浏览器打开拖动的文件，`handleDragIn`和`handleDragOut`处理进入和退出组件的拖动文件，而`handleDrop`处理被删除的文件并将其传递给`props.handleDrop`。
+* 返回一个适当样式的`<div>`并使用`drag`和`filename`来确定其内容和样式。
+* 最后，将创建的`<div>`的`ref`绑定到`dropRef`。
 
 ```css
 .filedrop {
@@ -1293,9 +1292,13 @@ The variables `dragCounter` and `drag` are used to determine if a file is being 
 ```
 
 ```jsx
+import React from "react";
+import styles from "./FileDrop.css";
 function FileDrop(props) {
   const [drag, setDrag] = React.useState(false);
-  const [filename, setFilename] = React.useState('');
+  const [filename, setFilename] = React.useState("");
+
+  // 创建组件引用
   let dropRef = React.createRef();
   let dragCounter = 0;
 
@@ -1331,23 +1334,32 @@ function FileDrop(props) {
   };
 
   React.useEffect(() => {
+    // 监听拖放事件
     let div = dropRef.current;
-    div.addEventListener('dragenter', handleDragIn);
-    div.addEventListener('dragleave', handleDragOut);
-    div.addEventListener('dragover', handleDrag);
-    div.addEventListener('drop', handleDrop);
+    div.addEventListener("dragenter", handleDragIn);
+    div.addEventListener("dragleave", handleDragOut);
+    div.addEventListener("dragover", handleDrag);
+    div.addEventListener("drop", handleDrop);
+    // 销毁时移除事件
     return function cleanup() {
-      div.removeEventListener('dragenter', handleDragIn);
-      div.removeEventListener('dragleave', handleDragOut);
-      div.removeEventListener('dragover', handleDrag);
-      div.removeEventListener('drop', handleDrop);
+      div.removeEventListener("dragenter", handleDragIn);
+      div.removeEventListener("dragleave", handleDragOut);
+      div.removeEventListener("dragover", handleDrag);
+      div.removeEventListener("drop", handleDrop);
     };
   });
 
   return (
     <div
+      // ref 引用
       ref={dropRef}
-      className={drag ? 'filedrop drag' : filename ? 'filedrop ready' : 'filedrop'}
+      className={
+        drag
+          ? `${styles.filedrop} ${styles.drag}`
+          : filename
+          ? `${styles.filedrop} ${styles.ready}`
+          : styles.filedrop
+      }
     >
       {filename && !drag ? <div>{filename}</div> : <div>Drop files here!</div>}
     </div>
@@ -1367,7 +1379,7 @@ export default function() {
 
 
 - [示例代码](https://github.com/heibaimeng/30-seconds-of-react-zh_CN-with-demo/blob/master/src/pages/Visual/FileDrop.js)
-- [运行效果](http://localhost:8000/30-seconds-of-react-demo/#/Visual/FileDrop)
+- [运行效果](https://heibaimeng.github.io/30-seconds-of-react-demo/#/Visual/FileDrop)
 
 
 ### Mailto发送电子邮件

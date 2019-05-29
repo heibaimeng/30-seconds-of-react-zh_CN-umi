@@ -1,7 +1,10 @@
 import React from "react";
+import styles from "./FileDrop.css";
 function FileDrop(props) {
   const [drag, setDrag] = React.useState(false);
   const [filename, setFilename] = React.useState("");
+
+  // 创建组件引用
   let dropRef = React.createRef();
   let dragCounter = 0;
 
@@ -37,11 +40,13 @@ function FileDrop(props) {
   };
 
   React.useEffect(() => {
+    // 监听拖放事件
     let div = dropRef.current;
     div.addEventListener("dragenter", handleDragIn);
     div.addEventListener("dragleave", handleDragOut);
     div.addEventListener("dragover", handleDrag);
     div.addEventListener("drop", handleDrop);
+    // 销毁时移除事件
     return function cleanup() {
       div.removeEventListener("dragenter", handleDragIn);
       div.removeEventListener("dragleave", handleDragOut);
@@ -52,9 +57,14 @@ function FileDrop(props) {
 
   return (
     <div
+      // ref 引用
       ref={dropRef}
       className={
-        drag ? "filedrop drag" : filename ? "filedrop ready" : "filedrop"
+        drag
+          ? `${styles.filedrop} ${styles.drag}`
+          : filename
+          ? `${styles.filedrop} ${styles.ready}`
+          : styles.filedrop
       }
     >
       {filename && !drag ? <div>{filename}</div> : <div>Drop files here!</div>}
