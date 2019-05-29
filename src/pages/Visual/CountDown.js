@@ -2,6 +2,7 @@ import React from "react";
 function CountDown({ hours = 0, minutes = 0, seconds = 0 }) {
   const [paused, setPaused] = React.useState(false);
   const [over, setOver] = React.useState(false);
+  // time 默认值是一个 object
   const [time, setTime] = React.useState({
     hours: parseInt(hours),
     minutes: parseInt(minutes),
@@ -9,6 +10,7 @@ function CountDown({ hours = 0, minutes = 0, seconds = 0 }) {
   });
 
   const tick = () => {
+    // 暂停，或已结束
     if (paused || over) return;
     if (time.hours === 0 && time.minutes === 0 && time.seconds === 0)
       setOver(true);
@@ -32,6 +34,7 @@ function CountDown({ hours = 0, minutes = 0, seconds = 0 }) {
       });
   };
 
+  // 重置
   const reset = () => {
     setTime({
       hours: parseInt(hours),
@@ -43,7 +46,9 @@ function CountDown({ hours = 0, minutes = 0, seconds = 0 }) {
   };
 
   React.useEffect(() => {
+    // 执行定时
     let timerID = setInterval(() => tick(), 1000);
+    // 卸载组件时进行清理
     return () => clearInterval(timerID);
   });
 

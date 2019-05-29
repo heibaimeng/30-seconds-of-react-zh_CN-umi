@@ -8,7 +8,7 @@ yarn install
 yarn dev
 ```
 
-共 25 个组件，目前完成进度为 15 / 25 。以下是正式内容：
+共 25 个组件，目前完成进度为 17 / 25 。以下是正式内容：
 
 ![Logo](/logo.png)
 
@@ -1166,19 +1166,21 @@ export default function() {
 
 渲染倒数计时器，在达到零时打印消息。
 
-* Use object destructuring to set defaults for the `hours`, `minutes` and `seconds` props.
-* Use the `React.useState()` hook to create the `time`, `paused` and `over` state variables and set their values to the values of the passed props, `false` and `false` respectively.
-* Create a method `tick`, that updates the value of `time` based on the current value (i.e. decreasing the time by one second).
-* If `paused` or `over` is `true`, `tick` will return immediately.
-* Create a method `reset`, that resets all state variables to their initial states.
-* Use the the `React.useEffect()` hook to call the `tick` method every second via the use of `setInterval()` and use `clearInterval()` to cleanup when the component is unmounted.
-* Use a `<div>` to wrap a `<p>` element with the textual representation of the components `time` state variable, as well as two `<button>` elements that will pause/unpause and restart the timer respectively.
-* If `over` is `true`, the timer will display a message instead of the value of `time`.
+* 使用对象解构来设置`hours`，`minutes`和`seconds`prop 的默认值。
+* 使用`React.useState()`钩子来创建`time`，`paused`和`over`状态变量，并将它们的值分别设置为传递的props，`false`和`false`的值。
+* 创建一个方法`tick`，它根据当前值更新`time`的值（即将时间减少一秒）。
+* 如果`paused` 或 `over` 是 `true` ，`tick`将立即返回。
+* 创建一个方法`reset`，将所有状态变量重置为其初始状态。
+* 使用`React.useEffect()`钩子通过使用`setInterval()`每秒调用`tick`方法，并在卸载组件时使用`clearInterval()`进行清理。
+* 使用`<div>`用`time`状态变量的文本表示形式包装`<p>`元素，以及分别暂停/取消暂停和重启计时器的两个`<button>`元素。
+* 如果`over`为 `true`，计时器将显示一条消息，而不是 `time` 的值。
 
 ```jsx
+import React from "react";
 function CountDown({ hours = 0, minutes = 0, seconds = 0 }) {
   const [paused, setPaused] = React.useState(false);
   const [over, setOver] = React.useState(false);
+  // time 默认值是一个 object
   const [time, setTime] = React.useState({
     hours: parseInt(hours),
     minutes: parseInt(minutes),
@@ -1186,15 +1188,17 @@ function CountDown({ hours = 0, minutes = 0, seconds = 0 }) {
   });
 
   const tick = () => {
+    // 暂停，或已结束
     if (paused || over) return;
-    if (time.hours == 0 && time.minutes == 0 && time.seconds == 0) setOver(true);
-    else if (time.minutes == 0 && time.seconds == 0)
+    if (time.hours === 0 && time.minutes === 0 && time.seconds === 0)
+      setOver(true);
+    else if (time.minutes === 0 && time.seconds === 0)
       setTime({
         hours: time.hours - 1,
         minutes: 59,
         seconds: 59
       });
-    else if (time.seconds == 0)
+    else if (time.seconds === 0)
       setTime({
         hours: time.hours,
         minutes: time.minutes - 1,
@@ -1208,6 +1212,7 @@ function CountDown({ hours = 0, minutes = 0, seconds = 0 }) {
       });
   };
 
+  // 重置
   const reset = () => {
     setTime({
       hours: parseInt(hours),
@@ -1219,17 +1224,23 @@ function CountDown({ hours = 0, minutes = 0, seconds = 0 }) {
   };
 
   React.useEffect(() => {
+    // 执行定时
     let timerID = setInterval(() => tick(), 1000);
+    // 卸载组件时进行清理
     return () => clearInterval(timerID);
   });
 
   return (
     <div>
-      <p>{`${time.hours.toString().padStart(2, '0')}:${time.minutes
+      <p>{`${time.hours
         .toString()
-        .padStart(2, '0')}:${time.seconds.toString().padStart(2, '0')}`}</p>
-      <div>{over ? "Time's up!" : ''}</div>
-      <button onClick={() => setPaused(!paused)}>{paused ? 'Resume' : 'Pause'}</button>
+        .padStart(2, "0")}:${time.minutes
+        .toString()
+        .padStart(2, "0")}:${time.seconds.toString().padStart(2, "0")}`}</p>
+      <div>{over ? "Time's up!" : ""}</div>
+      <button onClick={() => setPaused(!paused)}>
+        {paused ? "Resume" : "Pause"}
+      </button>
       <button onClick={() => reset()}>Restart</button>
     </div>
   );
