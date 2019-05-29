@@ -8,7 +8,7 @@ yarn install
 yarn dev
 ```
 
-共 25 个组件，目前完成进度为 17 / 25 。以下是正式内容：
+共 25 个组件，目前完成进度为 19 / 25 。以下是正式内容：
 
 ![Logo](/logo.png)
 
@@ -1386,8 +1386,8 @@ export default function() {
 
 格式化为发送电子邮件的链接。
 
-* Destructure the component's props, use `email`, `subject` and `body` to create a `<a>` element with an appropriate `href` attribute.
-* Render the link with `props.children` as its content.
+* 构造组件的props，使用`email`，`subject`和`body`创建一个具有`href`属性的`<a>`元素。
+* 使用`props.children`呈现链接的内容。
 
 ```jsx
 function Mailto({ email, subject, body, ...props }) {
@@ -1411,9 +1411,8 @@ export default function() {
 ```
 </details>
 
-
 - [示例代码](https://github.com/heibaimeng/30-seconds-of-react-zh_CN-with-demo/blob/master/src/pages/Visual/Mailto.js)
-- [运行效果](http://localhost:8000/30-seconds-of-react-demo/#/Visual/Mailto)
+- [运行效果](https://heibaimeng.github.io/30-seconds-of-react-demo/#/Visual/Mailto)
 
 ### Modal模态框
 
