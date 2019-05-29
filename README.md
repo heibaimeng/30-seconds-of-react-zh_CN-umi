@@ -1,18 +1,11 @@
 
-[30-seconds-of-react](https://github.com/30-seconds/30-seconds-of-react) 项目的中文翻译版本，并对案例进行分析、运行和注释，每个片段将会附带代码地址和线上预览地址。
+[30-seconds-of-react](https://github.com/30-seconds/30-seconds-of-react) 项目的中文翻译版本，使用 umi.js 对所有案例进行分析、注释、上线。
 
-把示例代码跑起来：
-
-```
-yarn install
-yarn dev
-```
-
-共 25 个组件，目前完成进度为 19 / 25 。以下是正式内容：
+共 25 个组件，目前完成进度为 19 / 25 。
 
 ![Logo](/logo.png)
 
-# React 片段 30 秒速学
+# React 30 秒速学
 
 > 精选的有用的 React 片段，你可以在30秒或更短的时间内理解。
 
@@ -44,10 +37,15 @@ import './MyComponent.css';
 import ReactDOM from 'react-dom';
 ```
 
-ps: 这里我使用 umi 进行代码的学习（创建过程中不要附带插件）。优势是无需定义路由，新建文件即可访问。
+### umi.js 的应用
+
+在 React 30 秒速学这个中文翻译项目里，我使用 umi.js 进行代码的学习。优势是无需定义路由，新建文件即可访问。
+
+把示例代码跑起来：
 
 ```
-yarn create umi
+yarn install
+yarn dev
 ```
 
 #### 相关产品
