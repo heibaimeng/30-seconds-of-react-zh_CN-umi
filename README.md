@@ -1,5 +1,5 @@
 
-[30-seconds-of-react](https://github.com/30-seconds/30-seconds-of-react) 项目的中文版本，并对案例进行分析、运行和注释，每个片段将会附带代码地址和线上预览地址。
+[30-seconds-of-react](https://github.com/30-seconds/30-seconds-of-react) 项目的中文翻译版本，并对案例进行分析、运行和注释，每个片段将会附带代码地址和线上预览地址。
 
 把示例代码跑起来：
 
@@ -12,7 +12,7 @@ yarn dev
 
 ![Logo](/logo.png)
 
-# React 的 30 秒小片段
+# React 片段 30 秒速学
 
 > 精选的有用的 React 片段，你可以在30秒或更短的时间内理解。
 
