@@ -1,13 +1,16 @@
 import React from "react";
-import "./Modal.css";
+import styles from "./Modal.css";
 
 function Modal({ isVisible = false, title, content, footer, onClose }) {
   React.useEffect(() => {
+    // 监听事件
     document.addEventListener("keydown", keydownHandler);
+    // 取消监听
     return () => document.removeEventListener("keydown", keydownHandler);
   });
 
   function keydownHandler({ key }) {
+    // esc 键，关闭模态框
     switch (key) {
       case "Escape":
         onClose();
@@ -15,20 +18,23 @@ function Modal({ isVisible = false, title, content, footer, onClose }) {
       default:
     }
   }
-
+  // 控制模态框显示
   return !isVisible ? null : (
-    <div className="modal" onClick={onClose}>
-      <div className="modal-dialog" onClick={e => e.stopPropagation()}>
-        <div className="modal-header">
-          <h3 className="modal-title">{title}</h3>
-          <span className="modal-close" onClick={onClose}>
+    <div className={styles["modal"]} onClick={onClose}>
+      <div
+        className={styles["modal-dialog"]}
+        onClick={e => e.stopPropagation()}
+      >
+        <div className={styles["modal-header"]}>
+          <h3 className={styles["modal-title"]}>{title}</h3>
+          <span className={styles["modal-close"]} onClick={onClose}>
             &times;
           </span>
         </div>
-        <div className="modal-body">
-          <div className="modal-content">{content}</div>
+        <div className={styles["modal-body"]}>
+          <div className={styles["modal-content"]}>{content}</div>
         </div>
-        {footer && <div className="modal-footer">{footer}</div>}
+        {footer && <div className={styles["modal-footer"]}>{footer}</div>}
       </div>
     </div>
   );
@@ -40,12 +46,13 @@ function App() {
 
   return (
     <React.Fragment>
-      <button onClick={() => setModal(true)}>Click Here</button>
+      {/* 按钮显示模态框 */}
+      <button onClick={() => setModal(true)}>显示模态框</button>
       <Modal
         isVisible={isModal}
-        title="Modal Title"
-        content={<p>Add your content here</p>}
-        footer={<button>Cancel</button>}
+        title="标题"
+        content={<p>正文</p>}
+        footer={<button onClick={() => setModal(false)}>关闭模态框</button>}
         onClose={() => setModal(false)}
       />
     </React.Fragment>

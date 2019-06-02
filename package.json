@@ -25,9 +25,12 @@
     "react-test-renderer": "^16.7.0",
     "umi": "^2.6.3",
     "umi-plugin-react": "^1.6.0"
-    },
+  },
   "lint-staged": {
-    "*.{js,jsx}": ["eslint --fix", "git add"]
+    "*.{js,jsx}": [
+      "eslint --fix",
+      "git add"
+    ]
   },
   "engines": {
     "node": ">=8.0.0"

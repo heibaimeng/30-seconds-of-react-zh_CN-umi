@@ -1,17 +1,17 @@
 
 [30-seconds-of-react](https://github.com/30-seconds/30-seconds-of-react) 项目的中文翻译版本，使用 umi.js 对所有案例进行分析、注释、上线。
 
-共 25 个组件，目前完成进度为 19 / 25 。
+共 25 个组件，目前已全部翻译完成 。
 
 ![Logo](/logo.png)
 
 # React 30 秒速学
 
-> 精选的有用的 React 片段，你可以在30秒或更短的时间内理解。
+> 精选有用的 React 片段，你可以在30秒或更短的时间内理解。
 
  - 使用<kbd> Ctrl </kbd> + <kbd> F </kbd>或<kbd>command</kbd> + <kbd> F </kbd>搜索片段。
- - 欢迎提供，请阅读<a href="https://github.com/30-seconds/30-seconds-of-react/blob/master/CONTRIBUTING.md" target="_blank">贡献指南</a>。
- - 片段用React 16.8+编写，使用 hooks 。
+ - 欢迎贡献（原项目），请阅读<a href="https://github.com/30-seconds/30-seconds-of-react/blob/master/CONTRIBUTING.md" target="_blank">30-seconds-of-react 贡献指南</a>。
+ - 片段用React 16.8+编写，充分使用 hooks 特性。
 
 ### 先决条件
 
@@ -58,18 +58,12 @@ yarn dev
 
 ### Array渲染数组
 
-<details>
-<summary>查看内容</summary>
-
 * [DataList渲染为列表](#DataList渲染为列表)
 * [DataTable渲染为表格](#DataTable渲染为表格)
 * [MappedTable渲染为映射表格](#MappedTable渲染为映射表格)
-</details>
+
 
 ### Input输入
-
-<details>
-<summary>查看内容</summary>
 
 * [Input基础输入框](#Input基础输入框)
 * [LimitedTextarea限制字符数的多行文本](#LimitedTextarea限制字符数的多行文本)
@@ -79,28 +73,19 @@ yarn dev
 * [Select下拉选择器](#Select下拉选择器)
 * [Slider滑块元素](#Slider滑块元素)
 * [TextArea多行文本](#TextArea多行文本)
-</details>
+
 
 ### Object对象渲染
 
-<details>
-<summary>查看内容</summary>
-
 * [TreeView可折叠无限层级树组件](#TreeView可折叠无限层级树组件)
-</details>
+
 
 ### String字符串处理
 
-<details>
-<summary>查看内容</summary>
-
 * [AutoLink自动识别文本中的链接](#AutoLink自动识别文本中的链接)
-</details>
+
 
 ### Visual视觉效果渲染
-
-<details>
-<summary>查看内容</summary>
 
 * [Accordion手风琴组件](#Accordion手风琴组件)
 * [Carousel轮播组件](#Carousel轮播组件)
@@ -108,13 +93,13 @@ yarn dev
 * [CountDown倒计时](#CountDown倒计时)
 * [FileDrop文件拖放组件](#FileDrop文件拖放组件)
 * [Mailto发送电子邮件](#Mailto发送电子邮件)
-* [Modal模态框](#Modal模态框)
+* [Modal模态框组件](#Modal模态框组件)
 * [StarRating星级评分](#StarRating星级评分)
 * [Tabs选项卡组件](#Tabs选项卡组件)
-* [Ticker](#Ticker)
-* [Toggle](#Toggle)
-* [Tooltip](#Tooltip)
-</details>
+* [Ticker时间控制组件](#Ticker时间控制组件)
+* [Toggle开关组件](#Toggle开关组件)
+* [Tooltip提示](#Tooltip提示)
+
 
 ---
 
@@ -135,8 +120,7 @@ function DataList({ isOrdered, data }) {
 }
 ```
 
-<details>
-<summary>例子</summary>
+例子
 
 ```jsx
 export default function() {
@@ -152,7 +136,7 @@ export default function() {
 }
 ```
 
-</details>
+
 
 ps:
 
@@ -189,8 +173,7 @@ function DataTable({ data }) {
 }
 ```
 
-<details>
-<summary>例子</summary>
+例子
 
 ```jsx
 export default function() {
@@ -198,7 +181,7 @@ export default function() {
   return <DataTable data={people} />;
 }
 ```
-</details>
+
 
 ps:
 
@@ -250,8 +233,7 @@ function MappedTable({ data, propertyNames }) {
 
 此组件不适用于嵌套对象，如果在`propertyNames`中指定的任何属性中有嵌套对象，则会中断。
 
-<details>
-<summary>例子</summary>
+例子
 
 ```jsx
 export default function() {
@@ -263,7 +245,7 @@ export default function() {
   return <MappedTable data={people} propertyNames={propertyNames} />;
 }
 ```
-</details>
+
 
 ps:
 
@@ -294,15 +276,14 @@ function Input({ callback, type = 'text', disabled = false, readOnly = false, pl
 }
 ```
 
-<details>
-<summary>例子</summary>
+例子
 
 ```jsx
 export default function() {
   return <Input type="text" placeholder="Insert some text here..." callback={val => console.log(val)} />;
 }
 ```
-</details>
+
 
 ps:
 
@@ -356,15 +337,14 @@ function LimitedTextarea({ rows, cols, value, limit }) {
 }
 ```
 
-<details>
-<summary>例子</summary>
+例子
 
 ```jsx
 export default function() {
   return <LimitedTextarea limit={32} value="Hello!" />;
 }
 ```
-</details>
+
 
 ps:
 
@@ -425,15 +405,14 @@ function LimitedWordTextarea({ rows, cols, value, limit }) {
 }
 ```
 
-<details>
-<summary>例子</summary>
+例子
 
 ```jsx
 export default function() {
   return <LimitedWordTextarea limit={5} value="Hello there!" />;
 }
 ```
-</details>
+
 
 ps:
 
@@ -487,8 +466,7 @@ function MultiselectCheckbox({ options, onChange }) {
 }
 ```
 
-<details>
-<summary>例子</summary>
+例子
 
 ```jsx
 export default function() {
@@ -503,7 +481,7 @@ export default function() {
   );
 }
 ```
-</details>
+
 
 ps:
 
@@ -530,15 +508,14 @@ function PasswordRevealer({ value }) {
 }
 ```
 
-<details>
-<summary>例子</summary>
+例子
 
 ```jsx
 export default function() {
   return <PasswordRevealer />;
 }
 ```
-</details>
+
 
 ps:
 
@@ -583,8 +560,7 @@ function Select({
 }
 ```
 
-<details>
-<summary>例子</summary>
+例子
 
 ```jsx
 export default function() {
@@ -605,7 +581,7 @@ export default function() {
   );
 }
 ```
-</details>
+
 
 ps: 这里的实现跟官方不同，官方使用 option 的 selected 属性，但浏览器报错说不应使用，故更改为 select 的 value 属性。
 
@@ -632,15 +608,14 @@ function Slider({ callback, disabled = false, readOnly = false }) {
 }
 ```
 
-<details>
-<summary>例子</summary>
+例子
 
 ```jsx
 export default function() {
   return <Slider callback={val => console.log(val)} />;
 }
 ```
-</details>
+
 
 ps:
 
@@ -676,8 +651,7 @@ function TextArea({
 }
 ```
 
-<details>
-<summary>例子</summary>
+例子
 
 ```jsx
 export default function() {
@@ -689,7 +663,7 @@ export default function() {
   );
 }
 ```
-</details>
+
 
 ps:
 
@@ -816,8 +790,7 @@ function TreeView({
 }
 ```
 
-<details>
-<summary>例子</summary>
+例子
 
 ```jsx
 export default function() {
@@ -846,7 +819,7 @@ export default function() {
   return <TreeView data={data} name="data" />;
 }
 ```
-</details>
+
 
 
 ps:
@@ -893,8 +866,7 @@ function AutoLink({ text }) {
 }
 ```
 
-<details>
-<summary>例子</summary>
+例子
 
 ```jsx
 export default function() {
@@ -902,7 +874,7 @@ export default function() {
 }
 ```
 
-</details>
+
 
 
 - [示例代码](https://github.com/heibaimeng/30-seconds-of-react-zh_CN-with-demo/blob/master/src/pages/String/AutoLink.js)
@@ -994,8 +966,7 @@ function Accordion(props) {
 }
 ```
 
-<details>
-<summary>例子</summary>
+例子
 
 ```jsx
 export default function() {
@@ -1011,7 +982,7 @@ export default function() {
   );
 }
 ```
-</details>
+
 
 
 - [示例代码](https://github.com/heibaimeng/30-seconds-of-react-zh_CN-with-demo/blob/master/src/pages/Visual/Accordion.js)
@@ -1072,8 +1043,7 @@ function Carousel(props) {
 }
 ```
 
-<details>
-<summary>例子</summary>
+例子
 
 ```jsx
 export default function() {
@@ -1088,7 +1058,7 @@ export default function() {
   );
 }
 ```
-</details>
+
 
 - [示例代码](https://github.com/heibaimeng/30-seconds-of-react-zh_CN-with-demo/blob/master/src/pages/Visual/Carousel.js)
 - [运行效果](https://heibaimeng.github.io/30-seconds-of-react-demo/#/Visual/Carousel)
@@ -1142,8 +1112,7 @@ function Collapse(props) {
 }
 ```
 
-<details>
-<summary>例子</summary>
+例子
 
 ```jsx
 export default function() {
@@ -1155,7 +1124,7 @@ export default function() {
   );
 }
 ```
-</details>
+
 
 - [示例代码](https://github.com/heibaimeng/30-seconds-of-react-zh_CN-with-demo/blob/master/src/pages/Visual/Collapse.js)
 - [运行效果](https://heibaimeng.github.io/30-seconds-of-react-demo/#/Visual/Collapse)
@@ -1245,15 +1214,14 @@ function CountDown({ hours = 0, minutes = 0, seconds = 0 }) {
 }
 ```
 
-<details>
-<summary>例子</summary>
+例子
 
 ```jsx
 export default function() {
   return <CountDown hours="1" minutes="45" />;
 }
 ```
-</details>
+
 
 - [示例代码](https://github.com/heibaimeng/30-seconds-of-react-zh_CN-with-demo/blob/master/src/pages/Visual/CountDown.js)
 - [运行效果](https://heibaimeng.github.io/30-seconds-of-react-demo/#/Visual/CountDown)
@@ -1365,15 +1333,14 @@ function FileDrop(props) {
 }
 ```
 
-<details>
-<summary>例子</summary>
+例子
 
 ```jsx
 export default function() {
   return <FileDrop handleDrop={console.log} />;
 }
 ```
-</details>
+
 
 
 - [示例代码](https://github.com/heibaimeng/30-seconds-of-react-zh_CN-with-demo/blob/master/src/pages/Visual/FileDrop.js)
@@ -1395,8 +1362,7 @@ function Mailto({ email, subject, body, ...props }) {
 }
 ```
 
-<details>
-<summary>例子</summary>
+例子
 
 ```jsx
 export default function() {
@@ -1407,21 +1373,21 @@ export default function() {
   );
 }
 ```
-</details>
+
 
 - [示例代码](https://github.com/heibaimeng/30-seconds-of-react-zh_CN-with-demo/blob/master/src/pages/Visual/Mailto.js)
 - [运行效果](https://heibaimeng.github.io/30-seconds-of-react-demo/#/Visual/Mailto)
 
-### Modal模态框
+### Modal模态框组件
 
 可通过事件控制的模态组件。
 要使用该组件，只导入一次`Modal`，然后通过将一个布尔值传递给`isVisible`属性来显示它。
 
-* Use object destructuring to set defaults for certain attributes of the modal component.
-* Define `keydownHandler`, a method which handles all keyboard events, which can be used according to your needs to dispatch actions (e.g. close the modal when <kbd>Esc</kbd> is pressed).
-* Use `React.useEffect()` hook to add or remove the `keydown` event listener, which calls `keydownHandler`.
-* Use the `isVisible` prop to determine if the modal should be shown or not.
-* Use CSS to style and position the modal component.
+* 使用对象解构来设置模态组件的某些属性的默认值。
+* 定义`keydownHandler`方法，用于处理所有键盘事件，可以根据你的需要使用它来调度动作（例如，当按下<kbd>Esc</kbd>时关闭模态）。
+*使用`React.useEffect()`hook来添加或删除`keydown`事件监听器，它调用`keydownHandler`。
+*使用`isVisible`道具来确定是否应该显示模态。
+*使用CSS来设置和定位模态组件。
 
 样式：
 
@@ -1498,52 +1464,66 @@ export default function() {
 组件：
 
 ```jsx
-function Modal({ isVisible = false, title, content, footer, onClose }){  
+import React from "react";
+import styles from "./Modal.css";
+
+function Modal({ isVisible = false, title, content, footer, onClose }) {
   React.useEffect(() => {
-    document.addEventListener('keydown', keydownHandler);
-    return () => document.removeEventListener('keydown', keydownHandler);
+    // 监听事件
+    document.addEventListener("keydown", keydownHandler);
+    // 取消监听
+    return () => document.removeEventListener("keydown", keydownHandler);
   });
 
   function keydownHandler({ key }) {
+    // esc 键，关闭模态框
     switch (key) {
-      case 'Escape':  onClose(); break;
+      case "Escape":
+        onClose();
+        break;
       default:
     }
   }
-
+  // 控制模态框显示
   return !isVisible ? null : (
-    <div className="modal" onClick={onClose}>
-        <div className="modal-dialog"  onClick={e => e.stopPropagation()}>
-        <div className="modal-header">
-          <h3 className="modal-title">{title}</h3>
-          <span className="modal-close" onClick={onClose}>&times;</span>
+    <div className={styles["modal"]} onClick={onClose}>
+      <div
+        className={styles["modal-dialog"]}
+        onClick={e => e.stopPropagation()}
+      >
+        <div className={styles["modal-header"]}>
+          <h3 className={styles["modal-title"]}>{title}</h3>
+          <span className={styles["modal-close"]} onClick={onClose}>
+            &times;
+          </span>
         </div>
-        <div className="modal-body">
-          <div className="modal-content">{ content }</div>
+        <div className={styles["modal-body"]}>
+          <div className={styles["modal-content"]}>{content}</div>
         </div>
-        {footer && <div className="modal-footer">{footer}</div>}
+        {footer && <div className={styles["modal-footer"]}>{footer}</div>}
       </div>
     </div>
-  )
+  );
 }
 ```
 
-<details>
-<summary>例子</summary>
+例子
 
 ```jsx
+
 // 将组件添加到 render 函数
 function App() {
   const [isModal, setModal] = React.useState(false);
 
   return (
     <React.Fragment>
-      <button onClick={() => setModal(true)}>Click Here</button>
+      {/* 按钮显示模态框 */}
+      <button onClick={() => setModal(true)}>显示模态框</button>
       <Modal
         isVisible={isModal}
-        title="Modal Title"
-        content={<p>Add your content here</p>}
-        footer={<button>Cancel</button>}
+        title="标题"
+        content={<p>正文</p>}
+        footer={<button onClick={() => setModal(false)}>关闭模态框</button>}
         onClose={() => setModal(false)}
       />
     </React.Fragment>
@@ -1554,45 +1534,60 @@ export default function() {
   return <App />;
 }
 ```
-</details>
 
 - [示例代码](https://github.com/heibaimeng/30-seconds-of-react-zh_CN-with-demo/blob/master/src/pages/Visual/Modal.js)
-- [运行效果](http://localhost:8000/30-seconds-of-react-demo/#/Visual/Modal)
+- [运行效果](https://heibaimeng.github.io/30-seconds-of-react-demo/#/Visual/Modal)
 
 ### StarRating星级评分
 
 星级评分组件。
 
-* Define a component, called `Star` that will render each individual star with the appropriate appearance, based on the parent component's state.
-* In the `StarRating` component, use the `React.useState()` hook to define the `rating` and `selection` state variables with the initial values of `props.rating` (or `0` if invalid or not supplied) and `0`.
-* Create a method, `hoverOver`, that updates `selected` and `rating` according to the provided `event`.
-* Create a `<div>` to wrap the `<Star>` components, which are created using `Array.prototype.map` on an array of 5 elements, created using `Array.from`, and handle the `onMouseLeave` event to set `selection` to `0`, the `onClick` event to set the `rating` and the `onMouseOver` event to set `selection` to the `star-id` attribute of the `event.target` respectively.
-* Finally, pass the appropriate values to each `<Star>` component (`starId` and `marked`).
+* 定义一个名为“Star”的组件，它将根据父组件的状态为每个星形呈现适当的外观。
+* 在`StarRating`组件中，使用`React.useState()`钩子来定义`rating`和`selection`状态变量，初始值为`props.rating`（如果无效或未传入，则为 0 ）和 0 。
+* 创建一个方法`hoverOver`，根据传入的`event`更新`selected`和`rating`。
+* 创建一个`<div>`来包装`<Star>`组件，这些组件是使用`Array.prototype.map`在5个元素的数组上创建的，使用`Array.from`创建，并处理`onMouseLeave` 将`selection`设置为`0`的事件，`onClick`事件设置`rating`和`onMouseOver`事件，分别将`selection`设置为`event.target`的`star-id`属性。
+* 最后，将适当的值传递给每个`<Star>`组件（`starId`和`marked`）。
+
+星星组件：
 
 ```jsx
 function Star({ marked, starId }) {
   return (
-    <span star-id={starId} style={{ color: '#ff9933' }} role="button">
-      {marked ? '\u2605' : '\u2606'}
+    <span star-id={starId} style={{ color: "#ff9933" }} role="button">
+      {/* 空星，实星 */}
+      {marked ? "\u2605" : "\u2606"}
     </span>
   );
 }
+```
 
+星级评分：
+
+```jsx
 function StarRating(props) {
-  const [rating, setRating] = React.useState(typeof props.rating == 'number' ? props.rating : 0);
+  // 分数显示
+  const [rating, setRating] = React.useState(
+    typeof props.rating == "number" ? props.rating : 0
+  );
+  // 鼠标移入效果
   const [selection, setSelection] = React.useState(0);
   const hoverOver = event => {
     let val = 0;
-    if (event && event.target && event.target.getAttribute('star-id'))
-      val = event.target.getAttribute('star-id');
+    if (event && event.target && event.target.getAttribute("star-id"))
+      val = event.target.getAttribute("star-id");
     setSelection(val);
   };
   return (
     <div
+      // 鼠标移入效果
       onMouseOut={() => hoverOver(null)}
-      onClick={(event) => setRating(event.target.getAttribute('star-id') || rating)}
+      // 点击选中分数
+      onClick={event =>
+        setRating(event.target.getAttribute("star-id") || rating)
+      }
       onMouseOver={hoverOver}
     >
+      {/* 创建5个组件 */}
       {Array.from({ length: 5 }, (v, i) => (
         <Star
           starId={i + 1}
@@ -1605,8 +1600,7 @@ function StarRating(props) {
 }
 ```
 
-<details>
-<summary>例子</summary>
+例子
 
 ```jsx
 export default function() {
@@ -1616,20 +1610,21 @@ export default function() {
   </div>;
 }
 ```
-</details>
+
 
 - [示例代码](https://github.com/heibaimeng/30-seconds-of-react-zh_CN-with-demo/blob/master/src/pages/Visual/StarRating.js)
-- [运行效果](http://localhost:8000/30-seconds-of-react-demo/#/Visual/StarRating)
+- [运行效果](https://heibaimeng.github.io/30-seconds-of-react-demo/#/Visual/StarRating)
 
 ### Tabs选项卡组件
 
 选项卡组件。
 
-* Define a `TabItem` component, pass it to the `Tab` and remove unnecessary nodes expect for `TabItem` by identifying the function's name in `props.children`.
-* Use the `React.useState()` hook to initialize the value of the `bindIndex` state variable to `props.defaultIndex`.
-* Use `Array.prototype.map` on the collected nodes to render the `tab-menu` and `tab-view`.
-* Define `changeTab`, which will be executed when clicking a `<button>` from the `tab-menu`.
-* `changeTab` executes the passed callback, `onTabClick` and updates `bindIndex`, which in turn causes a re-render, evaluating the `style` and `className` of the `tab-view` items and `tab-menu` buttons according to their `index`.
+* 定义一个`TabItem`组件，将它传递给`Tab`并通过在`props.children`中识别函数的名称来删除除了`TabItem`外的不必要的节点。
+* 使用`React.useState()` hook 将`bindIndex`状态变量的值初始化为`props.defaultIndex`。
+* 使用`Array.prototype.map`来渲染`tab-menu`和`tab-view`。
+* 定义 `changeTab` ，用于 `tab-menu` 单击 `<button>` 时执行。
+* 这导致根据他们的`index` 反过来重新渲染 `tab-view`项的`style`和`className`以及`tab-menu` 。
+* `changeTab` 执行传递的回调函数 `onTabClick` ，并更新 `bindIndex` ，这会导致重新渲染，根据它们的 `index` 改变 `tab-view` 项目和 `tab-menu` 按钮的 `style` 和 `className` 。
 
 ```css
 .tab-menu > button {
@@ -1648,6 +1643,8 @@ export default function() {
 ```
 
 ```jsx
+import styles from "./Tabs.css";
+
 function TabItem(props) {
   return <div {...props} />;
 }
@@ -1655,27 +1652,31 @@ function TabItem(props) {
 function Tabs(props) {
   const [bindIndex, setBindIndex] = React.useState(props.defaultIndex);
   const changeTab = newIndex => {
-    if (typeof props.onTabClick === 'function') props.onTabClick(newIndex);
+    if (typeof props.onTabClick === "function") props.onTabClick(newIndex);
     setBindIndex(newIndex);
   };
-  const items = props.children.filter(item => item.type.name === 'TabItem');
+  const items = props.children.filter(item => item.type.name === TabItem.name);
 
   return (
-    <div className="wrapper">
-      <div className="tab-menu">
+    <div className={styles["wrapper"]}>
+      <div className={styles["tab-menu"]}>
         {items.map(({ props: { index, label } }) => (
-          <button onClick={() => changeTab(index)} className={bindIndex === index ? 'focus' : ''}>
+          <button
+            onClick={() => changeTab(index)}
+            key={index}
+            className={bindIndex === index ? styles["focus"] : ""}
+          >
             {label}
           </button>
         ))}
       </div>
-      <div className="tab-view">
+      <div className={styles["tab-view"]}>
         {items.map(({ props }) => (
           <div
             {...props}
-            className="tab-view_item"
+            className={styles["tab-view_item"]}
             key={props.index}
-            style={{ display: bindIndex === props.index ? 'block' : 'none' }}
+            style={{ display: bindIndex === props.index ? "block" : "none" }}
           />
         ))}
       </div>
@@ -1684,41 +1685,42 @@ function Tabs(props) {
 }
 ```
 
-<details>
-<summary>例子</summary>
+例子
 
 ```jsx
 export default function() {
   return (
     <Tabs defaultIndex="1" onTabClick={console.log}>
       <TabItem label="A" index="1">
-        Lorem ipsum
+        A 选修卡的内容
       </TabItem>
       <TabItem label="B" index="2">
-        Dolor sit amet
+        B 选修卡的内容
       </TabItem>
     </Tabs>
   );
 }
 ```
-</details>
+
 
 - [示例代码](https://github.com/heibaimeng/30-seconds-of-react-zh_CN-with-demo/blob/master/src/pages/Visual/Tabs.js)
-- [运行效果](http://localhost:8000/30-seconds-of-react-demo/#/Visual/Tabs)
+- [运行效果](https://heibaimeng.github.io/30-seconds-of-react-demo/#/Visual/Tabs)
 
-### Ticker
+### Ticker时间控制组件
 
-Renders a ticker component.
+时间控制组件
 
-* Use the `React.useState()` hook to initialize the `ticker` state variable to `0`.
-* Define two methods, `tick` and `reset`, that will periodically increment `timer` based on `interval` and reset `interval` respectively.
-* Return a `<div>` with two `<button>` elements, each of which calls `tick` and `reset` respectively.
+* 使用`React.useState()` hook 将`ticker`状态变量初始化为`0`。
+* 定义两个方法，`tick`和`reset`，它们将根据`interval`周期性地递增`timer`并分别重置`interval`。
+* 返回带有两个`<button>`元素的`<div>`，分别调用`tick`和`reset`。
 
 ```jsx
 function Ticker(props) {
+  // 当前 ticker ，默认 0
   const [ticker, setTicker] = React.useState(0);
   let interval = null;
 
+  // 开始计时
   const tick = () => {
     reset();
     interval = setInterval(() => {
@@ -1727,6 +1729,7 @@ function Ticker(props) {
     }, props.interval);
   };
 
+  // 重置为0，并清除计时器
   const reset = () => {
     setTicker(0);
     clearInterval(interval);
@@ -1734,34 +1737,72 @@ function Ticker(props) {
 
   return (
     <div>
-      <span style={{ fontSize: 100 }}>{this.state.ticker}</span>
-      <button onClick={this.tick}>Tick!</button>
-      <button onClick={this.reset}>Reset</button>
+      <span style={{ fontSize: 100 }}>{ticker}</span>
+      <button onClick={tick}>Tick!</button>
+      <button onClick={reset}>Reset</button>
     </div>
   );
 }
 ```
 
-<details>
-<summary>例子</summary>
+> 注：useState 与 setInterval 运行在 umi 的 demo 中存在异常，这里使用“类组件”的形式完成Ticker组件。
+
+```jsx
+import React from "react";
+
+class Ticker extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { ticker: 0 };
+    this.interval = null;
+  }
+
+  tick = () => {
+    this.reset();
+    this.interval = setInterval(() => {
+      if (this.state.ticker < this.props.times) {
+        this.setState(({ ticker }) => ({ ticker: ticker + 1 }));
+      } else {
+        clearInterval(this.interval);
+      }
+    }, this.props.interval);
+  };
+
+  reset = () => {
+    this.setState({ ticker: 0 });
+    clearInterval(this.interval);
+  };
+
+  render() {
+    return (
+      <div>
+        <span style={{ fontSize: 100 }}>{this.state.ticker}</span>
+        <button onClick={this.tick}>Tick!</button>
+        <button onClick={this.reset}>Reset</button>
+      </div>
+    );
+  }
+}
+```
+
+例子
 
 ```jsx
 export default function() {
   return <Ticker times={5} interval={1000} />;
 }
 ```
-</details>
 
 - [示例代码](https://github.com/heibaimeng/30-seconds-of-react-zh_CN-with-demo/blob/master/src/pages/Visual/Ticker.js)
-- [运行效果](http://localhost:8000/30-seconds-of-react-demo/#/Visual/Ticker)
+- [运行效果](https://heibaimeng.github.io/30-seconds-of-react-demo/#/Visual/Ticker)
 
-### Toggle
+### Toggle开关组件
 
-Renders a toggle component.
+开关组件
 
-* Use the `React.useState()` to initialize the `isToggleOn` state variable to `false`.
-* Use an object, `style`, to hold the styles for individual components and their states.
-* Return a `<button>` that alters the component's `isToggledOn` when its `onClick` event is fired and determine the appearance of the content based on `isToggleOn`, applying the appropriate CSS rules from the `style` object.
+* 使用`React.useState()`将`isToggleOn`状态变量初始化为`false`。
+* 使用一个对象`style`来保存单个组件及其状态的样式。
+* 返回一个`<button>`，当它的`onClick`事件被触发时改变组件的`isToggledOn`，并根据`isToggleOn`确定内容的外观，从`style`对象应用适当的CSS规则。
 
 ```jsx
 function Toggle(props) {
@@ -1783,26 +1824,25 @@ function Toggle(props) {
 }
 ```
 
-<details>
-<summary>例子</summary>
+例子
 
 ```jsx
 export default function() {
   return <Toggle />;
 }
 ```
-</details>
+
 
 - [示例代码](https://github.com/heibaimeng/30-seconds-of-react-zh_CN-with-demo/blob/master/src/pages/Visual/Toggle.js)
-- [运行效果](http://localhost:8000/30-seconds-of-react-demo/#/Visual/Toggle)
+- [运行效果](https://heibaimeng.github.io/30-seconds-of-react-demo/#/Visual/Toggle)
 
 ### Tooltip提示
 
 提示组件。
 
-* Use the `React.useState()` hook to create the `show` variable and initialize it to `false`.
-* Return a `<div>` element that contains the `<div>` that will be the tooltip and the `children` passed to the component.
-* Handle the `onMouseEnter` and `onMouseLeave` methods, by altering the value of the `show` variable.
+* 使用`React.useState()`钩子创建`show`变量并将其初始化为`false`。
+* 返回一个`<div>`元素，其中包含将作为工具提示的`<div>`和传递给组件的`children`。
+* 通过改变`show`变量的值来处理`onMouseEnter`和`onMouseLeave`方法。
 
 ```css
 .tooltip {
@@ -1824,16 +1864,23 @@ export default function() {
 ```
 
 ```jsx
+import styles from "./Tooltip.css";
 function Tooltip({ children, text, ...rest }) {
   const [show, setShow] = React.useState(false);
-
   return (
     <div>
-      <div className="tooltip" style={show ? { visibility: 'visible' } : {}}>
+      <div
+        className={styles["tooltip"]}
+        style={show ? { visibility: "visible" } : {}}
+      >
         {text}
-        <span className="tooltip-arrow" />
+        <span className={styles["tooltip-arrow"]} />
       </div>
-      <div {...rest} onMouseEnter={() => setShow(true)} onMouseLeave={() => setShow(false)}>
+      <div
+        {...rest}
+        onMouseEnter={() => setShow(true)}
+        onMouseLeave={() => setShow(false)}
+      >
         {children}
       </div>
     </div>
@@ -1841,22 +1888,20 @@ function Tooltip({ children, text, ...rest }) {
 }
 ```
 
-<details>
-<summary>例子</summary>
+例子
 
 ```jsx
 export default function() {
   return (
-    <Tooltip text="Simple tooltip">
-      <button>Hover me!</button>
+    <Tooltip text="提示文本~">
+      <button>鼠标移入!</button>
     </Tooltip>
   );
 }
 ```
-</details>
 
 - [示例代码](https://github.com/heibaimeng/30-seconds-of-react-zh_CN-with-demo/blob/master/src/pages/Visual/Tooltip.js)
-- [运行效果](http://localhost:8000/30-seconds-of-react-demo/#/Visual/Tooltip)
+- [运行效果](https://heibaimeng.github.io/30-seconds-of-react-demo/#/Visual/Tooltip)
 
 ---
 

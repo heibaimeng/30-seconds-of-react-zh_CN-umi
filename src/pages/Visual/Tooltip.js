@@ -1,13 +1,15 @@
 import React from "react";
-import "./Tooltip.css";
+import styles from "./Tooltip.css";
 function Tooltip({ children, text, ...rest }) {
   const [show, setShow] = React.useState(false);
-
   return (
     <div>
-      <div className="tooltip" style={show ? { visibility: "visible" } : {}}>
+      <div
+        className={styles["tooltip"]}
+        style={show ? { visibility: "visible" } : {}}
+      >
         {text}
-        <span className="tooltip-arrow" />
+        <span className={styles["tooltip-arrow"]} />
       </div>
       <div
         {...rest}
@@ -22,8 +24,8 @@ function Tooltip({ children, text, ...rest }) {
 
 export default function() {
   return (
-    <Tooltip text="Simple tooltip">
-      <button>Hover me!</button>
+    <Tooltip text="提示文本~">
+      <button>鼠标移入!</button>
     </Tooltip>
   );
 }
