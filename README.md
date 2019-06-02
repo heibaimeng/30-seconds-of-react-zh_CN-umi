@@ -62,7 +62,6 @@ yarn dev
 * [DataTable渲染为表格](#DataTable渲染为表格)
 * [MappedTable渲染为映射表格](#MappedTable渲染为映射表格)
 
-
 ### Input输入
 
 * [Input基础输入框](#Input基础输入框)
@@ -74,7 +73,6 @@ yarn dev
 * [Slider滑块元素](#Slider滑块元素)
 * [TextArea多行文本](#TextArea多行文本)
 
-
 ### Object对象渲染
 
 * [TreeView可折叠无限层级树组件](#TreeView可折叠无限层级树组件)
@@ -83,7 +81,6 @@ yarn dev
 ### String字符串处理
 
 * [AutoLink自动识别文本中的链接](#AutoLink自动识别文本中的链接)
-
 
 ### Visual视觉效果渲染
 
@@ -99,7 +96,6 @@ yarn dev
 * [Ticker时间控制组件](#Ticker时间控制组件)
 * [Toggle开关组件](#Toggle开关组件)
 * [Tooltip提示](#Tooltip提示)
-
 
 ---
 
@@ -135,8 +131,6 @@ export default function() {
   );
 }
 ```
-
-
 
 ps:
 
@@ -820,8 +814,6 @@ export default function() {
 }
 ```
 
-
-
 ps:
 
 - [示例代码](https://github.com/heibaimeng/30-seconds-of-react-zh_CN-with-demo/blob/master/src/pages/Object/TreeView.js)
@@ -873,8 +865,6 @@ export default function() {
   return <AutoLink text="foo bar baz http://example.org barhttp://baidu.com 123" />;
 }
 ```
-
-
 
 
 - [示例代码](https://github.com/heibaimeng/30-seconds-of-react-zh_CN-with-demo/blob/master/src/pages/String/AutoLink.js)
@@ -982,8 +972,6 @@ export default function() {
   );
 }
 ```
-
-
 
 - [示例代码](https://github.com/heibaimeng/30-seconds-of-react-zh_CN-with-demo/blob/master/src/pages/Visual/Accordion.js)
 - [运行效果](https://heibaimeng.github.io/30-seconds-of-react-demo/#/Visual/Accordion)
@@ -1341,8 +1329,6 @@ export default function() {
 }
 ```
 
-
-
 - [示例代码](https://github.com/heibaimeng/30-seconds-of-react-zh_CN-with-demo/blob/master/src/pages/Visual/FileDrop.js)
 - [运行效果](https://heibaimeng.github.io/30-seconds-of-react-demo/#/Visual/FileDrop)
 
@@ -1381,6 +1367,7 @@ export default function() {
 ### Modal模态框组件
 
 可通过事件控制的模态组件。
+
 要使用该组件，只导入一次`Modal`，然后通过将一个布尔值传递给`isVisible`属性来显示它。
 
 * 使用对象解构来设置模态组件的某些属性的默认值。
@@ -1611,7 +1598,6 @@ export default function() {
 }
 ```
 
-
 - [示例代码](https://github.com/heibaimeng/30-seconds-of-react-zh_CN-with-demo/blob/master/src/pages/Visual/StarRating.js)
 - [运行效果](https://heibaimeng.github.io/30-seconds-of-react-demo/#/Visual/StarRating)
 
@@ -1701,7 +1687,6 @@ export default function() {
   );
 }
 ```
-
 
 - [示例代码](https://github.com/heibaimeng/30-seconds-of-react-zh_CN-with-demo/blob/master/src/pages/Visual/Tabs.js)
 - [运行效果](https://heibaimeng.github.io/30-seconds-of-react-demo/#/Visual/Tabs)
