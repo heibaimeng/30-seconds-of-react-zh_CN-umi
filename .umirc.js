@@ -4,7 +4,7 @@ export default {
   history: "hash",
   base: "/30-seconds-of-react-demo/",
   publicPath: "/30-seconds-of-react-demo/",
-  outputPath: "../heibaimeng.github.io/30-seconds-of-react-demo/",
+  outputPath: "../heibaimeng/30-seconds-of-react-demo/",
   plugins: [
     // ref: https://umijs.org/plugin/umi-plugin-react.html
     [
@@ -18,9 +18,9 @@ export default {
 
         routes: {
           // 路由排除指定目录
-          exclude: [/components\//]
-        }
-      }
-    ]
-  ]
+          exclude: [/components\//],
+        },
+      },
+    ],
+  ],
 };

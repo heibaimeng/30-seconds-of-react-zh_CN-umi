@@ -44,8 +44,8 @@ import ReactDOM from 'react-dom';
 把示例代码跑起来：
 
 ```
-yarn install
-yarn dev
+npm install
+npm run dev
 ```
 
 #### 相关产品
@@ -135,7 +135,7 @@ export default function() {
 ps:
 
 - [示例代码](https://github.com/heibaimeng/30-seconds-of-react-zh_CN-with-demo/blob/master/src/pages/Array/DataList.js)
-- [运行效果](https://heibaimeng.github.io/30-seconds-of-react-demo/#/Array/DataList)
+- [运行效果](https://heibaimeng.gitee.io/30-seconds-of-react-demo/#/Array/DataList)
 
 ### DataTable渲染为表格
 
@@ -180,7 +180,7 @@ export default function() {
 ps:
 
 - [示例代码](https://github.com/heibaimeng/30-seconds-of-react-zh_CN-with-demo/blob/master/src/pages/Array/DataTable.js)
-- [运行效果](https://heibaimeng.github.io/30-seconds-of-react-demo/#/Array/DataTable)
+- [运行效果](https://heibaimeng.gitee.io/30-seconds-of-react-demo/#/Array/DataTable)
 
 ### MappedTable渲染为映射表格
 
@@ -244,7 +244,7 @@ export default function() {
 ps:
 
 - [示例代码](https://github.com/heibaimeng/30-seconds-of-react-zh_CN-with-demo/blob/master/src/pages/Array/MappedTable.js)
-- [运行效果](https://heibaimeng.github.io/30-seconds-of-react-demo/#/Array/MappedTable)
+- [运行效果](https://heibaimeng.gitee.io/30-seconds-of-react-demo/#/Array/MappedTable)
 
 
 ## Input输入
@@ -282,7 +282,7 @@ export default function() {
 ps:
 
 - [示例代码](https://github.com/heibaimeng/30-seconds-of-react-zh_CN-with-demo/blob/master/src/pages/Input/Input.js)
-- [运行效果](https://heibaimeng.github.io/30-seconds-of-react-demo/#/Input/Input)
+- [运行效果](https://heibaimeng.gitee.io/30-seconds-of-react-demo/#/Input/Input)
 
 ### LimitedTextarea限制字符数的多行文本
 
@@ -343,7 +343,7 @@ export default function() {
 ps:
 
 - [示例代码](https://github.com/heibaimeng/30-seconds-of-react-zh_CN-with-demo/blob/master/src/pages/Input/LimitedTextarea.js)
-- [运行效果](https://heibaimeng.github.io/30-seconds-of-react-demo/#/Input/LimitedTextarea)
+- [运行效果](https://heibaimeng.gitee.io/30-seconds-of-react-demo/#/Input/LimitedTextarea)
 
 ### LimitedWordTextarea限制单词数的多行文本
 
@@ -411,7 +411,7 @@ export default function() {
 ps:
 
 - [示例代码](https://github.com/heibaimeng/30-seconds-of-react-zh_CN-with-demo/blob/master/src/pages/Input/LimitedWordTextarea.js)
-- [运行效果](https://heibaimeng.github.io/30-seconds-of-react-demo/#/Input/LimitedWordTextarea)
+- [运行效果](https://heibaimeng.gitee.io/30-seconds-of-react-demo/#/Input/LimitedWordTextarea)
 
 ### MultiselectCheckbox复选框
 
@@ -480,7 +480,7 @@ export default function() {
 ps:
 
 - [示例代码](https://github.com/heibaimeng/30-seconds-of-react-zh_CN-with-demo/blob/master/src/pages/Input/MultiselectCheckbox.js)
-- [运行效果](https://heibaimeng.github.io/30-seconds-of-react-demo/#/Input/MultiselectCheckbox)
+- [运行效果](https://heibaimeng.gitee.io/30-seconds-of-react-demo/#/Input/MultiselectCheckbox)
 
 ### PasswordRevealer密码可见
 
@@ -514,7 +514,7 @@ export default function() {
 ps:
 
 - [示例代码](https://github.com/heibaimeng/30-seconds-of-react-zh_CN-with-demo/blob/master/src/pages/Input/PasswordRevealer.js)
-- [运行效果](https://heibaimeng.github.io/30-seconds-of-react-demo/#/Input/PasswordRevealer)
+- [运行效果](https://heibaimeng.gitee.io/30-seconds-of-react-demo/#/Input/PasswordRevealer)
 
 ### Select下拉选择器
 
@@ -580,7 +580,7 @@ export default function() {
 ps: 这里的实现跟官方不同，官方使用 option 的 selected 属性，但浏览器报错说不应使用，故更改为 select 的 value 属性。
 
 - [示例代码](https://github.com/heibaimeng/30-seconds-of-react-zh_CN-with-demo/blob/master/src/pages/Input/Select.js)
-- [运行效果](https://heibaimeng.github.io/30-seconds-of-react-demo/#/Input/Select)
+- [运行效果](https://heibaimeng.gitee.io/30-seconds-of-react-demo/#/Input/Select)
 
 ### Slider滑块元素
 
@@ -614,7 +614,7 @@ export default function() {
 ps:
 
 - [示例代码](https://github.com/heibaimeng/30-seconds-of-react-zh_CN-with-demo/blob/master/src/pages/Input/Slider.js)
-- [运行效果](https://heibaimeng.github.io/30-seconds-of-react-demo/#/Input/Slider)
+- [运行效果](https://heibaimeng.gitee.io/30-seconds-of-react-demo/#/Input/Slider)
 
 ### TextArea多行文本
 
@@ -662,7 +662,7 @@ export default function() {
 ps:
 
 - [示例代码](https://github.com/heibaimeng/30-seconds-of-react-zh_CN-with-demo/blob/master/src/pages/Input/TextArea.js)
-- [运行效果](https://heibaimeng.github.io/30-seconds-of-react-demo/#/Input/TextArea)
+- [运行效果](https://heibaimeng.gitee.io/30-seconds-of-react-demo/#/Input/TextArea)
 
 ## Object对象渲染
 ### TreeView可折叠无限层级树组件
@@ -817,7 +817,7 @@ export default function() {
 ps:
 
 - [示例代码](https://github.com/heibaimeng/30-seconds-of-react-zh_CN-with-demo/blob/master/src/pages/Object/TreeView.js)
-- [运行效果](https://heibaimeng.github.io/30-seconds-of-react-demo/#/Object/TreeView)
+- [运行效果](https://heibaimeng.gitee.io/30-seconds-of-react-demo/#/Object/TreeView)
 
 
 ## String字符串处理
@@ -868,7 +868,7 @@ export default function() {
 
 
 - [示例代码](https://github.com/heibaimeng/30-seconds-of-react-zh_CN-with-demo/blob/master/src/pages/String/AutoLink.js)
-- [运行效果](https://heibaimeng.github.io/30-seconds-of-react-demo/#/String/AutoLink)
+- [运行效果](https://heibaimeng.gitee.io/30-seconds-of-react-demo/#/String/AutoLink)
 
 
 ## Visual视觉效果渲染
@@ -974,7 +974,7 @@ export default function() {
 ```
 
 - [示例代码](https://github.com/heibaimeng/30-seconds-of-react-zh_CN-with-demo/blob/master/src/pages/Visual/Accordion.js)
-- [运行效果](https://heibaimeng.github.io/30-seconds-of-react-demo/#/Visual/Accordion)
+- [运行效果](https://heibaimeng.gitee.io/30-seconds-of-react-demo/#/Visual/Accordion)
 
 ### Carousel轮播组件
 
@@ -1049,7 +1049,7 @@ export default function() {
 
 
 - [示例代码](https://github.com/heibaimeng/30-seconds-of-react-zh_CN-with-demo/blob/master/src/pages/Visual/Carousel.js)
-- [运行效果](https://heibaimeng.github.io/30-seconds-of-react-demo/#/Visual/Carousel)
+- [运行效果](https://heibaimeng.gitee.io/30-seconds-of-react-demo/#/Visual/Carousel)
 
 ### Collapse折叠面板
 
@@ -1115,7 +1115,7 @@ export default function() {
 
 
 - [示例代码](https://github.com/heibaimeng/30-seconds-of-react-zh_CN-with-demo/blob/master/src/pages/Visual/Collapse.js)
-- [运行效果](https://heibaimeng.github.io/30-seconds-of-react-demo/#/Visual/Collapse)
+- [运行效果](https://heibaimeng.gitee.io/30-seconds-of-react-demo/#/Visual/Collapse)
 
 ### CountDown倒计时
 
@@ -1212,7 +1212,7 @@ export default function() {
 
 
 - [示例代码](https://github.com/heibaimeng/30-seconds-of-react-zh_CN-with-demo/blob/master/src/pages/Visual/CountDown.js)
-- [运行效果](https://heibaimeng.github.io/30-seconds-of-react-demo/#/Visual/CountDown)
+- [运行效果](https://heibaimeng.gitee.io/30-seconds-of-react-demo/#/Visual/CountDown)
 
 ### FileDrop文件拖放组件
 
@@ -1330,7 +1330,7 @@ export default function() {
 ```
 
 - [示例代码](https://github.com/heibaimeng/30-seconds-of-react-zh_CN-with-demo/blob/master/src/pages/Visual/FileDrop.js)
-- [运行效果](https://heibaimeng.github.io/30-seconds-of-react-demo/#/Visual/FileDrop)
+- [运行效果](https://heibaimeng.gitee.io/30-seconds-of-react-demo/#/Visual/FileDrop)
 
 
 ### Mailto发送电子邮件
@@ -1362,7 +1362,7 @@ export default function() {
 
 
 - [示例代码](https://github.com/heibaimeng/30-seconds-of-react-zh_CN-with-demo/blob/master/src/pages/Visual/Mailto.js)
-- [运行效果](https://heibaimeng.github.io/30-seconds-of-react-demo/#/Visual/Mailto)
+- [运行效果](https://heibaimeng.gitee.io/30-seconds-of-react-demo/#/Visual/Mailto)
 
 ### Modal模态框组件
 
@@ -1523,7 +1523,7 @@ export default function() {
 ```
 
 - [示例代码](https://github.com/heibaimeng/30-seconds-of-react-zh_CN-with-demo/blob/master/src/pages/Visual/Modal.js)
-- [运行效果](https://heibaimeng.github.io/30-seconds-of-react-demo/#/Visual/Modal)
+- [运行效果](https://heibaimeng.gitee.io/30-seconds-of-react-demo/#/Visual/Modal)
 
 ### StarRating星级评分
 
@@ -1599,7 +1599,7 @@ export default function() {
 ```
 
 - [示例代码](https://github.com/heibaimeng/30-seconds-of-react-zh_CN-with-demo/blob/master/src/pages/Visual/StarRating.js)
-- [运行效果](https://heibaimeng.github.io/30-seconds-of-react-demo/#/Visual/StarRating)
+- [运行效果](https://heibaimeng.gitee.io/30-seconds-of-react-demo/#/Visual/StarRating)
 
 ### Tabs选项卡组件
 
@@ -1689,7 +1689,7 @@ export default function() {
 ```
 
 - [示例代码](https://github.com/heibaimeng/30-seconds-of-react-zh_CN-with-demo/blob/master/src/pages/Visual/Tabs.js)
-- [运行效果](https://heibaimeng.github.io/30-seconds-of-react-demo/#/Visual/Tabs)
+- [运行效果](https://heibaimeng.gitee.io/30-seconds-of-react-demo/#/Visual/Tabs)
 
 ### Ticker时间控制组件
 
@@ -1779,7 +1779,7 @@ export default function() {
 ```
 
 - [示例代码](https://github.com/heibaimeng/30-seconds-of-react-zh_CN-with-demo/blob/master/src/pages/Visual/Ticker.js)
-- [运行效果](https://heibaimeng.github.io/30-seconds-of-react-demo/#/Visual/Ticker)
+- [运行效果](https://heibaimeng.gitee.io/30-seconds-of-react-demo/#/Visual/Ticker)
 
 ### Toggle开关组件
 
@@ -1819,7 +1819,7 @@ export default function() {
 
 
 - [示例代码](https://github.com/heibaimeng/30-seconds-of-react-zh_CN-with-demo/blob/master/src/pages/Visual/Toggle.js)
-- [运行效果](https://heibaimeng.github.io/30-seconds-of-react-demo/#/Visual/Toggle)
+- [运行效果](https://heibaimeng.gitee.io/30-seconds-of-react-demo/#/Visual/Toggle)
 
 ### Tooltip提示
 
@@ -1886,7 +1886,7 @@ export default function() {
 ```
 
 - [示例代码](https://github.com/heibaimeng/30-seconds-of-react-zh_CN-with-demo/blob/master/src/pages/Visual/Tooltip.js)
-- [运行效果](https://heibaimeng.github.io/30-seconds-of-react-demo/#/Visual/Tooltip)
+- [运行效果](https://heibaimeng.gitee.io/30-seconds-of-react-demo/#/Visual/Tooltip)
 
 ---
 
