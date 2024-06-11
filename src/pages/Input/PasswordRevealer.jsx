@@ -9,7 +9,7 @@ function PasswordRevealer({ value }) {
         value={value}
         onChange={() => {}}
       />
-      <button onClick={() => setShown(!shown)}>显示/隐藏</button>
+      <button type="button" onClick={() => setShown(!shown)}>显示/隐藏</button>
     </div>
   );
 }

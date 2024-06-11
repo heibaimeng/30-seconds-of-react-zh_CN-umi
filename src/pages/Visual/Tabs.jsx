@@ -18,6 +18,7 @@ function Tabs(props) {
       <div className={styles["tab-menu"]}>
         {items.map(({ props: { index, label } }) => (
           <button
+            type="button"
             onClick={() => changeTab(index)}
             key={index}
             className={bindIndex === index ? styles["focus"] : ""}

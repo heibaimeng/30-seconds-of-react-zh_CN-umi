@@ -12,6 +12,7 @@ function Toggle(props) {
 
   return (
     <button
+      type="button"
       onClick={() => setIsToggleOn(!isToggleOn)}
       style={isToggleOn ? style.on : style.off}
     >

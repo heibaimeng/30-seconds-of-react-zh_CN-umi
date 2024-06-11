@@ -19,6 +19,7 @@ function Collapse(props) {
   return (
     <div>
       <button
+        type="button"
         style={style.buttonStyle}
         onClick={() => setIsCollapsed(!isCollapsed)}
       >

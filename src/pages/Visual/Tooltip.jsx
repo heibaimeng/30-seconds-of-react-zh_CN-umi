@@ -25,7 +25,7 @@ function Tooltip({ children, text, ...rest }) {
 export default function() {
   return (
     <Tooltip text="提示文本~">
-      <button>鼠标移入!</button>
+      <button type="button">鼠标移入!</button>
     </Tooltip>
   );
 }

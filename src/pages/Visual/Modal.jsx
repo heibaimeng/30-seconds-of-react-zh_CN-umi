@@ -47,12 +47,12 @@ function App() {
   return (
     <React.Fragment>
       {/* 按钮显示模态框 */}
-      <button onClick={() => setModal(true)}>显示模态框</button>
+      <button type="button" onClick={() => setModal(true)}>显示模态框</button>
       <Modal
         isVisible={isModal}
         title="标题"
         content={<p>正文</p>}
-        footer={<button onClick={() => setModal(false)}>关闭模态框</button>}
+        footer={<button type="button" onClick={() => setModal(false)}>关闭模态框</button>}
         onClose={() => setModal(false)}
       />
     </React.Fragment>

@@ -33,7 +33,7 @@ function TreeView({
       {/* 渲染对象的子元素 */}
       {Object.keys(data).map((v, i, a) =>
         // 是对象，递归调用自身
-        typeof data[v] == "object" ? (
+        typeof data[v] === "object" ? (
           <TreeView
             data={data[v]}
             key={i}

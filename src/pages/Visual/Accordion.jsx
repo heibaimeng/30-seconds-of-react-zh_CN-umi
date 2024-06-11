@@ -16,7 +16,7 @@ function AccordionItem(props) {
   return (
     <div>
       {/* 按钮，点击传入的 handleClick */}
-      <button style={style.buttonStyle} onClick={() => props.handleClick()}>
+      <button type="button" style={style.buttonStyle} onClick={() => props.handleClick()}>
         {props.label}
       </button>
       {/* 控制显示、隐藏状态 */}
@@ -57,8 +57,9 @@ function Accordion(props) {
           label={props.label}
           key={props.index}
           handleClick={() => changeItem(props.index)}
-          children={props.children}
-        />
+        >
+          {props.children}
+        </AccordionItem>
       ))}
     </div>
   );

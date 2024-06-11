@@ -60,10 +60,10 @@ function CountDown({ hours = 0, minutes = 0, seconds = 0 }) {
         .toString()
         .padStart(2, "0")}:${time.seconds.toString().padStart(2, "0")}`}</p>
       <div>{over ? "Time's up!" : ""}</div>
-      <button onClick={() => setPaused(!paused)}>
+      <button type="button" onClick={() => setPaused(!paused)}>
         {paused ? "Resume" : "Pause"}
       </button>
-      <button onClick={() => reset()}>Restart</button>
+      <button type="button" onClick={() => reset()}>Restart</button>
     </div>
   );
 }

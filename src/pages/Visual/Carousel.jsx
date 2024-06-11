@@ -46,9 +46,9 @@ export default function() {
   return (
     <Carousel
       carouselItems={[
-        <div>carousel item 1</div>,
-        <div>carousel item 2</div>,
-        <div>carousel item 3</div>
+        <div key="item1">carousel item 1</div>,
+        <div key="item2">carousel item 2</div>,
+        <div key="item3">carousel item 3</div>
       ]}
     />
   );

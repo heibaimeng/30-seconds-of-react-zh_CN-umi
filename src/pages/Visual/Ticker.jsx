@@ -28,8 +28,8 @@ class Ticker extends React.Component {
     return (
       <div>
         <span style={{ fontSize: 100 }}>{this.state.ticker}</span>
-        <button onClick={this.tick}>Tick!</button>
-        <button onClick={this.reset}>Reset</button>
+        <button type="button" onClick={this.tick}>Tick!</button>
+        <button type="button" onClick={this.reset}>Reset</button>
       </div>
     );
   }
